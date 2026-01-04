@@ -1,0 +1,1 @@
+# SMARTCARE+ Core Module
