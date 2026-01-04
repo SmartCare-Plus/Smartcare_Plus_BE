@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-01-02T14:39:22.714682",
+  "input_directory": "media/simulation_footage/guardian",
+  "output_file": "ml_models/guardian/guardian_dataset.pkl",
+  "sequence_length": 30,
+  "overlap": 15,
+  "total_videos": 70,
+  "total_sequences": 700,
+  "classes": {
+    "adl": 543,
+    "fall": 157
+  },
+  "landmarks_per_frame": 33,
+  "features_per_landmark": 4,
+  "total_features_per_frame": 132,
+  "processing_config": {
+    "input_dir": "media/simulation_footage/guardian",
+    "output_file": "ml_models/guardian/guardian_dataset.pkl",
+    "sequence_length": 30,
+    "overlap": 15,
+    "min_detection_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "video_extensions": [
+      ".mp4",
+      ".avi",
+      ".mov",
+      ".mkv"
+    ],
+    "normalize_landmarks": true,
+    "include_visibility": true,
+    "skip_incomplete_sequences": false,
+    "augment_data": false,
+    "max_videos_per_class": null
+  },
+  "failed_videos": []
+}
