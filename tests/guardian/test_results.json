@@ -1,0 +1,609 @@
+{
+  "total": 25,
+  "correct": 15,
+  "by_class": {
+    "fall": {
+      "total": 5,
+      "correct": 5,
+      "predictions": [
+        {
+          "video": "fall-01-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "fall",
+          "confidence": 0.7377350926399231,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.13638700544834137,
+            "arthritis_gait": 0.02239917404949665,
+            "fall": 0.7377350926399231,
+            "good_gait": 0.056771911680698395,
+            "tug": 0.046706851571798325
+          },
+          "processing_time_ms": 120358.48689079285
+        },
+        {
+          "video": "fall-02-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "fall",
+          "confidence": 0.6877004504203796,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1370462328195572,
+            "arthritis_gait": 0.03679678589105606,
+            "fall": 0.6877004504203796,
+            "good_gait": 0.08085949718952179,
+            "tug": 0.05759701505303383
+          },
+          "processing_time_ms": 7885.271310806274
+        },
+        {
+          "video": "fall-03-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "fall",
+          "confidence": 0.720626711845398,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1430199295282364,
+            "arthritis_gait": 0.02644304186105728,
+            "fall": 0.720626711845398,
+            "good_gait": 0.058460600674152374,
+            "tug": 0.0514497347176075
+          },
+          "processing_time_ms": 7884.99641418457
+        },
+        {
+          "video": "fall-04-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "fall",
+          "confidence": 0.7103199362754822,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.13129380345344543,
+            "arthritis_gait": 0.032101258635520935,
+            "fall": 0.7103199362754822,
+            "good_gait": 0.07094801962375641,
+            "tug": 0.055336907505989075
+          },
+          "processing_time_ms": 7778.999090194702
+        },
+        {
+          "video": "fall-05-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "fall",
+          "confidence": 0.7434511184692383,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.13873133063316345,
+            "arthritis_gait": 0.02060851827263832,
+            "fall": 0.7434511184692383,
+            "good_gait": 0.051580410450696945,
+            "tug": 0.04562859609723091
+          },
+          "processing_time_ms": 7831.998586654663
+        }
+      ]
+    },
+    "adl": {
+      "total": 5,
+      "correct": 0,
+      "predictions": [
+        {
+          "video": "adl-01-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "adl",
+          "confidence": 0.24354122579097748,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.16324353218078613,
+            "arthritis_gait": 0.17120622098445892,
+            "fall": 0.24354122579097748,
+            "good_gait": 0.2179625928401947,
+            "tug": 0.20404648780822754
+          },
+          "processing_time_ms": 9222.194194793701
+        },
+        {
+          "video": "adl-02-cam0_cropped.mp4",
+          "predicted": "good_gait",
+          "expected": "adl",
+          "confidence": 0.22400306165218353,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.1660679131746292,
+            "arthritis_gait": 0.19470861554145813,
+            "fall": 0.20643270015716553,
+            "good_gait": 0.22400306165218353,
+            "tug": 0.2087876796722412
+          },
+          "processing_time_ms": 9968.99938583374
+        },
+        {
+          "video": "adl-03-cam0_cropped.mp4",
+          "predicted": "tug",
+          "expected": "adl",
+          "confidence": 0.22176527976989746,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.16819711029529572,
+            "arthritis_gait": 0.20629258453845978,
+            "fall": 0.1945122331380844,
+            "good_gait": 0.20923277735710144,
+            "tug": 0.22176527976989746
+          },
+          "processing_time_ms": 21063.9386177063
+        },
+        {
+          "video": "adl-04-cam0_cropped.mp4",
+          "predicted": "tug",
+          "expected": "adl",
+          "confidence": 0.21991658210754395,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.16850689053535461,
+            "arthritis_gait": 0.21625018119812012,
+            "fall": 0.18759949505329132,
+            "good_gait": 0.2077268660068512,
+            "tug": 0.21991658210754395
+          },
+          "processing_time_ms": 21739.40134048462
+        },
+        {
+          "video": "adl-05-cam0_cropped.mp4",
+          "predicted": "fall",
+          "expected": "adl",
+          "confidence": 0.21869945526123047,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.16197359561920166,
+            "arthritis_gait": 0.19112099707126617,
+            "fall": 0.21869945526123047,
+            "good_gait": 0.21040832996368408,
+            "tug": 0.21779754757881165
+          },
+          "processing_time_ms": 21563.002109527588
+        }
+      ]
+    },
+    "good_gait": {
+      "total": 5,
+      "correct": 0,
+      "predictions": [
+        {
+          "video": "good_gait1 - Copy (10) - Copy.mp4",
+          "predicted": "fall",
+          "expected": "good_gait",
+          "confidence": 0.2719414532184601,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.15931081771850586,
+            "arthritis_gait": 0.16572865843772888,
+            "fall": 0.2719414532184601,
+            "good_gait": 0.22911255061626434,
+            "tug": 0.17390649020671844
+          },
+          "processing_time_ms": 9885.998010635376
+        },
+        {
+          "video": "good_gait1 - Copy (11) - Copy.mp4",
+          "predicted": "fall",
+          "expected": "good_gait",
+          "confidence": 0.2719414532184601,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.15931081771850586,
+            "arthritis_gait": 0.16572865843772888,
+            "fall": 0.2719414532184601,
+            "good_gait": 0.22911255061626434,
+            "tug": 0.17390649020671844
+          },
+          "processing_time_ms": 10169.00110244751
+        },
+        {
+          "video": "good_gait1 - Copy (12) - Copy.mp4",
+          "predicted": "fall",
+          "expected": "good_gait",
+          "confidence": 0.2719414532184601,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.15931081771850586,
+            "arthritis_gait": 0.16572865843772888,
+            "fall": 0.2719414532184601,
+            "good_gait": 0.22911255061626434,
+            "tug": 0.17390649020671844
+          },
+          "processing_time_ms": 9839.529037475586
+        },
+        {
+          "video": "good_gait1 - Copy (13) - Copy.mp4",
+          "predicted": "fall",
+          "expected": "good_gait",
+          "confidence": 0.2719414532184601,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.15931081771850586,
+            "arthritis_gait": 0.16572865843772888,
+            "fall": 0.2719414532184601,
+            "good_gait": 0.22911255061626434,
+            "tug": 0.17390649020671844
+          },
+          "processing_time_ms": 10574.002742767334
+        },
+        {
+          "video": "good_gait1 - Copy (2).mp4",
+          "predicted": "fall",
+          "expected": "good_gait",
+          "confidence": 0.2719414532184601,
+          "correct": false,
+          "probabilities": {
+            "adl": 0.15931081771850586,
+            "arthritis_gait": 0.16572865843772888,
+            "fall": 0.2719414532184601,
+            "good_gait": 0.22911255061626434,
+            "tug": 0.17390649020671844
+          },
+          "processing_time_ms": 20855.59892654419
+        }
+      ]
+    },
+    "arthritis_gait": {
+      "total": 5,
+      "correct": 5,
+      "predictions": [
+        {
+          "video": "arthritis_gait - Copy (10).mp4",
+          "predicted": "arthritis_gait",
+          "expected": "arthritis_gait",
+          "confidence": 0.34351158142089844,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.16370996832847595,
+            "arthritis_gait": 0.34351158142089844,
+            "fall": 0.09860441088676453,
+            "good_gait": 0.1759420931339264,
+            "tug": 0.2182319164276123
+          },
+          "processing_time_ms": 7977.998971939087
+        },
+        {
+          "video": "arthritis_gait - Copy (11) - Copy.mp4",
+          "predicted": "arthritis_gait",
+          "expected": "arthritis_gait",
+          "confidence": 0.34351158142089844,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.16370996832847595,
+            "arthritis_gait": 0.34351158142089844,
+            "fall": 0.09860441088676453,
+            "good_gait": 0.1759420931339264,
+            "tug": 0.2182319164276123
+          },
+          "processing_time_ms": 7623.999834060669
+        },
+        {
+          "video": "arthritis_gait - Copy (11).mp4",
+          "predicted": "arthritis_gait",
+          "expected": "arthritis_gait",
+          "confidence": 0.34351158142089844,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.16370996832847595,
+            "arthritis_gait": 0.34351158142089844,
+            "fall": 0.09860441088676453,
+            "good_gait": 0.1759420931339264,
+            "tug": 0.2182319164276123
+          },
+          "processing_time_ms": 8325.690984725952
+        },
+        {
+          "video": "arthritis_gait - Copy (12) - Copy.mp4",
+          "predicted": "arthritis_gait",
+          "expected": "arthritis_gait",
+          "confidence": 0.34351158142089844,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.16370996832847595,
+            "arthritis_gait": 0.34351158142089844,
+            "fall": 0.09860441088676453,
+            "good_gait": 0.1759420931339264,
+            "tug": 0.2182319164276123
+          },
+          "processing_time_ms": 9138.997554779053
+        },
+        {
+          "video": "arthritis_gait - Copy (12).mp4",
+          "predicted": "arthritis_gait",
+          "expected": "arthritis_gait",
+          "confidence": 0.34351158142089844,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.16370996832847595,
+            "arthritis_gait": 0.34351158142089844,
+            "fall": 0.09860441088676453,
+            "good_gait": 0.1759420931339264,
+            "tug": 0.2182319164276123
+          },
+          "processing_time_ms": 9311.998844146729
+        }
+      ]
+    },
+    "tug": {
+      "total": 5,
+      "correct": 5,
+      "predictions": [
+        {
+          "video": "tug_test1 - Copy (10) - Copy.mp4",
+          "predicted": "tug",
+          "expected": "tug",
+          "confidence": 0.24264512956142426,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1623847335577011,
+            "arthritis_gait": 0.17926228046417236,
+            "fall": 0.23855137825012207,
+            "good_gait": 0.1771565079689026,
+            "tug": 0.24264512956142426
+          },
+          "processing_time_ms": 7882.999658584595
+        },
+        {
+          "video": "tug_test1 - Copy (2) - Copy.mp4",
+          "predicted": "tug",
+          "expected": "tug",
+          "confidence": 0.24264512956142426,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1623847335577011,
+            "arthritis_gait": 0.17926228046417236,
+            "fall": 0.23855137825012207,
+            "good_gait": 0.1771565079689026,
+            "tug": 0.24264512956142426
+          },
+          "processing_time_ms": 7728.001832962036
+        },
+        {
+          "video": "tug_test1 - Copy (2).mp4",
+          "predicted": "tug",
+          "expected": "tug",
+          "confidence": 0.24264512956142426,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1623847335577011,
+            "arthritis_gait": 0.17926228046417236,
+            "fall": 0.23855137825012207,
+            "good_gait": 0.1771565079689026,
+            "tug": 0.24264512956142426
+          },
+          "processing_time_ms": 7749.918699264526
+        },
+        {
+          "video": "tug_test1 - Copy (3) - Copy.mp4",
+          "predicted": "tug",
+          "expected": "tug",
+          "confidence": 0.24264512956142426,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1623847335577011,
+            "arthritis_gait": 0.17926228046417236,
+            "fall": 0.23855137825012207,
+            "good_gait": 0.1771565079689026,
+            "tug": 0.24264512956142426
+          },
+          "processing_time_ms": 8640.997886657715
+        },
+        {
+          "video": "tug_test1 - Copy (3).mp4",
+          "predicted": "tug",
+          "expected": "tug",
+          "confidence": 0.24264512956142426,
+          "correct": true,
+          "probabilities": {
+            "adl": 0.1623847335577011,
+            "arthritis_gait": 0.17926228046417236,
+            "fall": 0.23855137825012207,
+            "good_gait": 0.1771565079689026,
+            "tug": 0.24264512956142426
+          },
+          "processing_time_ms": 8753.000020980835
+        }
+      ]
+    }
+  },
+  "confusion_matrix": {
+    "fall": {
+      "fall": 5
+    },
+    "adl": {
+      "fall": 2,
+      "good_gait": 1,
+      "tug": 2
+    },
+    "good_gait": {
+      "fall": 5
+    },
+    "arthritis_gait": {
+      "arthritis_gait": 5
+    },
+    "tug": {
+      "tug": 5
+    }
+  },
+  "detailed_results": [
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\fall\\fall-01-cam0_cropped.mp4",
+      "expected": "fall",
+      "predicted": "fall",
+      "confidence": 0.7377350926399231,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\fall\\fall-02-cam0_cropped.mp4",
+      "expected": "fall",
+      "predicted": "fall",
+      "confidence": 0.6877004504203796,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\fall\\fall-03-cam0_cropped.mp4",
+      "expected": "fall",
+      "predicted": "fall",
+      "confidence": 0.720626711845398,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\fall\\fall-04-cam0_cropped.mp4",
+      "expected": "fall",
+      "predicted": "fall",
+      "confidence": 0.7103199362754822,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\fall\\fall-05-cam0_cropped.mp4",
+      "expected": "fall",
+      "predicted": "fall",
+      "confidence": 0.7434511184692383,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\adl\\adl-01-cam0_cropped.mp4",
+      "expected": "adl",
+      "predicted": "fall",
+      "confidence": 0.24354122579097748,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\adl\\adl-02-cam0_cropped.mp4",
+      "expected": "adl",
+      "predicted": "good_gait",
+      "confidence": 0.22400306165218353,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\adl\\adl-03-cam0_cropped.mp4",
+      "expected": "adl",
+      "predicted": "tug",
+      "confidence": 0.22176527976989746,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\adl\\adl-04-cam0_cropped.mp4",
+      "expected": "adl",
+      "predicted": "tug",
+      "confidence": 0.21991658210754395,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\adl\\adl-05-cam0_cropped.mp4",
+      "expected": "adl",
+      "predicted": "fall",
+      "confidence": 0.21869945526123047,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\good_gait\\good_gait1 - Copy (10) - Copy.mp4",
+      "expected": "good_gait",
+      "predicted": "fall",
+      "confidence": 0.2719414532184601,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\good_gait\\good_gait1 - Copy (11) - Copy.mp4",
+      "expected": "good_gait",
+      "predicted": "fall",
+      "confidence": 0.2719414532184601,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\good_gait\\good_gait1 - Copy (12) - Copy.mp4",
+      "expected": "good_gait",
+      "predicted": "fall",
+      "confidence": 0.2719414532184601,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\good_gait\\good_gait1 - Copy (13) - Copy.mp4",
+      "expected": "good_gait",
+      "predicted": "fall",
+      "confidence": 0.2719414532184601,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\good_gait\\good_gait1 - Copy (2).mp4",
+      "expected": "good_gait",
+      "predicted": "fall",
+      "confidence": 0.2719414532184601,
+      "correct": false
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\arthritis_gait\\arthritis_gait - Copy (10).mp4",
+      "expected": "arthritis_gait",
+      "predicted": "arthritis_gait",
+      "confidence": 0.34351158142089844,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\arthritis_gait\\arthritis_gait - Copy (11) - Copy.mp4",
+      "expected": "arthritis_gait",
+      "predicted": "arthritis_gait",
+      "confidence": 0.34351158142089844,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\arthritis_gait\\arthritis_gait - Copy (11).mp4",
+      "expected": "arthritis_gait",
+      "predicted": "arthritis_gait",
+      "confidence": 0.34351158142089844,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\arthritis_gait\\arthritis_gait - Copy (12) - Copy.mp4",
+      "expected": "arthritis_gait",
+      "predicted": "arthritis_gait",
+      "confidence": 0.34351158142089844,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\arthritis_gait\\arthritis_gait - Copy (12).mp4",
+      "expected": "arthritis_gait",
+      "predicted": "arthritis_gait",
+      "confidence": 0.34351158142089844,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\tug\\tug_test1 - Copy (10) - Copy.mp4",
+      "expected": "tug",
+      "predicted": "tug",
+      "confidence": 0.24264512956142426,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\tug\\tug_test1 - Copy (2) - Copy.mp4",
+      "expected": "tug",
+      "predicted": "tug",
+      "confidence": 0.24264512956142426,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\tug\\tug_test1 - Copy (2).mp4",
+      "expected": "tug",
+      "predicted": "tug",
+      "confidence": 0.24264512956142426,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\tug\\tug_test1 - Copy (3) - Copy.mp4",
+      "expected": "tug",
+      "predicted": "tug",
+      "confidence": 0.24264512956142426,
+      "correct": true
+    },
+    {
+      "video": "D:\\SmartCarePlus\\backend\\media\\simulation_footage\\guardian\\tug\\tug_test1 - Copy (3).mp4",
+      "expected": "tug",
+      "predicted": "tug",
+      "confidence": 0.24264512956142426,
+      "correct": true
+    }
+  ],
+  "overall_accuracy": 60.0,
+  "using_fallback": false
+}
