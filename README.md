@@ -16,6 +16,7 @@ An intelligent elderly care system designed to **monitor daily activities**, **d
   - [2. Fall Detection & Prevention](#2-fall-detection--prevention)
   - [3. Exercise Generator](#3-exercise-generator)
 - [System Architecture](#-system-architecture)
+- Backend Setup & Running
 - [UI/UX Highlights](#-uiux-highlights)
 - [Target Users](#-target-users)
 - [Future Enhancements](#-future-enhancements)
@@ -147,6 +148,26 @@ Firebase – Real-time database, authentication, and cloud data storage
 Firebase Cloud Messaging (FCM) – Push notifications,
 SMS / Email APIs – Emergency alerts to caregivers
 
+## ⚙️ Backend Setup & Running
+
+This section explains how to set up and run the **SmartCare+ FastAPI backend** locally.
+
+---
+
+### 🧰 Prerequisites
+
+- Python **3.10 or higher**
+- pip (Python package manager)
+- Git
+
+Verify installation:
+
+```bash
+python --version
+pip --version
+
+
+```
 
 ## 🎨 UI/UX Highlights
 
