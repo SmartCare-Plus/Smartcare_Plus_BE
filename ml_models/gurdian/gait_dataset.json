@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-01-02T14:46:56.562531",
+  "input_directory": "media/simulation_footage/physio",
+  "output_file": "ml_models/physio/physio_dataset.pkl",
+  "sequence_length": 45,
+  "overlap": 20,
+  "total_videos": 4,
+  "total_sequences": 90,
+  "classes": {
+    "arthritis_gait": 52,
+    "good_gait": 10,
+    "tug": 28
+  },
+  "landmarks_per_frame": 33,
+  "features_per_landmark": 4,
+  "total_features_per_frame": 132,
+  "processing_config": {
+    "input_dir": "media/simulation_footage/physio",
+    "output_file": "ml_models/physio/physio_dataset.pkl",
+    "sequence_length": 45,
+    "overlap": 20,
+    "min_detection_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "video_extensions": [
+      ".mp4",
+      ".avi",
+      ".mov",
+      ".mkv"
+    ],
+    "normalize_landmarks": true,
+    "include_visibility": true,
+    "skip_incomplete_sequences": false,
+    "augment_data": false,
+    "max_videos_per_class": null
+  },
+  "failed_videos": []
+}
