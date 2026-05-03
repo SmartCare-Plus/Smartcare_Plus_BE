@@ -12,11 +12,23 @@ from pydantic import BaseModel
 from datetime import datetime, date
 import random
 import logging
+<<<<<<< Updated upstream
+=======
+import uuid
+import threading
+>>>>>>> Stashed changes
 
 # Setup logger for nutrition service
 logger = logging.getLogger("smartcare.nutrition")
 logger.setLevel(logging.DEBUG)
 
+<<<<<<< Updated upstream
+=======
+# Firestore & notifications
+from core.database import get_db, is_mock_mode
+from core.notifications import fcm_service, PushNotification, NotificationType
+
+>>>>>>> Stashed changes
 from .models import (
     USDAClient,
     LocalFoodDatabase,
@@ -447,7 +459,12 @@ async def get_recent_foods(user_id: str = "current_user", limit: int = 10):
     
     # Try to get from meal logger's daily log
     try:
+<<<<<<< Updated upstream
         daily_log = meal_logger.get_daily_log(user_id)
+=======
+        today = date.today().strftime("%Y-%m-%d")
+        daily_log = meal_logger.get_daily_log(user_id, today)
+>>>>>>> Stashed changes
         recent_foods = []
         
         # Extract foods from recent meals
@@ -479,6 +496,7 @@ async def get_recent_foods(user_id: str = "current_user", limit: int = 10):
     popular_foods = []
     
     for search_term in common_searches:
+<<<<<<< Updated upstream
         results = local_db.search(search_term)
         if results:
             food = results[0]
@@ -490,6 +508,22 @@ async def get_recent_foods(user_id: str = "current_user", limit: int = 10):
                 "carbs": food.carbs,
                 "fat": food.fat,
             })
+=======
+        try:
+            results = local_db.search(search_term)
+            if results:
+                food = results[0]
+                popular_foods.append({
+                    "name": food.name,
+                    "calories": food.calories,
+                    "serving": f"{food.serving_size} {food.serving_unit}",
+                    "protein": food.protein,
+                    "carbs": food.carbs,
+                    "fat": food.fat,
+                })
+        except Exception:
+            continue
+>>>>>>> Stashed changes
     
     return {"foods": popular_foods[:limit]}
 
@@ -593,6 +627,34 @@ async def log_meal(request: MealLogRequest):
     
     logger.info(f"✅ Meal logged: {len(logged_foods)} foods, {total_calories:.0f} cal for user {request.user_id}")
     
+<<<<<<< Updated upstream
+=======
+    # ── Persist to Firestore ──
+    log_data = {
+        "log_id": log.log_id,
+        "user_id": request.user_id,
+        "meal_type": request.meal_type,
+        "foods": logged_foods,
+        "totals": {
+            "calories": round(total_calories, 1),
+            "protein": round(total_protein, 1),
+            "carbohydrates": round(total_carbs, 1),
+            "fat": round(total_fat, 1),
+            "fiber": round(total_fiber, 1),
+        },
+        "notes": request.notes,
+        "logged_at": datetime.now().isoformat(),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            db.collection("meal_logs").document(log.log_id).set(log_data)
+            logger.info(f"📦 Meal log persisted to Firestore: {log.log_id}")
+    except Exception as e:
+        logger.warning(f"⚠️ Failed to persist meal log to Firestore: {e}")
+    
+>>>>>>> Stashed changes
     return {
         "status": "logged",
         "log_id": log.log_id,
@@ -620,9 +682,49 @@ async def get_daily_summary(user_id: str, date: Optional[str] = None):
     
     target_date = date or datetime.now().strftime("%Y-%m-%d")
     
+<<<<<<< Updated upstream
     # Get logged meals for the day
     daily_log = meal_logger.get_daily_log(user_id, target_date)
     
+=======
+    # Get logged meals for the day (in-memory)
+    daily_log = meal_logger.get_daily_log(user_id, target_date)
+    
+    # ── Also load from Firestore if in-memory is empty ──
+    firestore_meals = []
+    if not daily_log.get("meals"):
+        try:
+            db = get_db()
+            if db and not is_mock_mode():
+                docs = db.collection("meal_logs").where(
+                    "user_id", "==", user_id
+                ).where("date", "==", target_date).get()
+                for doc in docs:
+                    d = doc.to_dict()
+                    firestore_meals.append(d)
+                if firestore_meals:
+                    # Build totals from Firestore data
+                    fs_totals = {"calories": 0.0, "protein": 0.0, "carbohydrates": 0.0, "fat": 0.0, "fiber": 0.0}
+                    fs_meals_list = []
+                    for m in firestore_meals:
+                        t = m.get("totals", {})
+                        fs_totals["calories"] += t.get("calories", 0)
+                        fs_totals["protein"] += t.get("protein", 0)
+                        fs_totals["carbohydrates"] += t.get("carbohydrates", 0)
+                        fs_totals["fat"] += t.get("fat", 0)
+                        fs_totals["fiber"] += t.get("fiber", 0)
+                        food_names = [f.get("name", "") for f in m.get("foods", [])]
+                        fs_meals_list.append({
+                            "type": m.get("meal_type", "").capitalize(),
+                            "name": ", ".join(food_names) if food_names else "Logged meal",
+                            "calories": int(t.get("calories", 0)),
+                            "time": m.get("logged_at", "")[:16].split("T")[-1] if m.get("logged_at") else "",
+                        })
+                    daily_log = {"totals": fs_totals, "meals": fs_meals_list}
+        except Exception as e:
+            logger.warning(f"⚠️ Firestore meal log read failed: {e}")
+    
+>>>>>>> Stashed changes
     # Get user's RDA profile (would come from user settings in production)
     rda = RDAProfile()
     
@@ -717,7 +819,29 @@ async def get_meal_plan(user_id: str, date: Optional[str] = None):
     
     target_date = date or datetime.now().strftime("%Y-%m-%d")
     
+<<<<<<< Updated upstream
     # Generate meal plan for requested days
+=======
+    # ── Try Firestore first for a saved plan ──
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            doc = db.collection("meal_plans").document(user_id).get()
+            if doc.exists:
+                saved = doc.to_dict()
+                return {
+                    "user_id": user_id,
+                    "date": target_date,
+                    "meal_plan": saved.get("meal_plan", {}),
+                    "total_calories": saved.get("daily_targets", {}).get("calories", 0),
+                    "daily_targets": saved.get("daily_targets", {}),
+                    "generated_at": saved.get("generated_at"),
+                }
+    except Exception as e:
+        logger.warning(f"⚠️ Firestore meal plan read failed: {e}")
+    
+    # Generate meal plan for requested days (fallback)
+>>>>>>> Stashed changes
     plans = meal_planner.generate_plan(
         user_id=user_id,
         duration_days=7,
@@ -831,6 +955,35 @@ async def generate_plan(request: GeneratePlanRequest):
     }
 
 
+<<<<<<< Updated upstream
+=======
+# ── Persist generated plan to Firestore (after generate-plan) ──
+@router.post("/save-meal-plan")
+async def save_meal_plan_to_firestore(request: GeneratePlanRequest):
+    """Generate and persist a meal plan to Firestore."""
+    result = await generate_plan(request)
+    
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            plan_doc = {
+                "user_id": request.user_id,
+                "meal_plan": result["meal_plan"],
+                "daily_targets": result["daily_targets"],
+                "restrictions": result["restrictions_applied"],
+                "budget_level": result["budget_level"],
+                "generated_at": result["generated_at"],
+                "duration_days": request.duration_days,
+            }
+            db.collection("meal_plans").document(request.user_id).set(plan_doc)
+            logger.info(f"📦 Meal plan persisted to Firestore for {request.user_id}")
+    except Exception as e:
+        logger.warning(f"⚠️ Failed to persist meal plan: {e}")
+    
+    return result
+
+
+>>>>>>> Stashed changes
 @router.get("/restrictions")
 async def get_available_restrictions():
     """Get list of available dietary restrictions."""
@@ -872,6 +1025,27 @@ async def log_hydration(request: HydrationLogRequest):
         beverage_type=request.beverage_type
     )
     
+<<<<<<< Updated upstream
+=======
+    # ── Persist to Firestore ──
+    hydration_id = f"hyd_{uuid.uuid4().hex[:8]}"
+    hydration_data = {
+        "id": hydration_id,
+        "user_id": request.user_id,
+        "amount_ml": request.amount_ml,
+        "beverage_type": request.beverage_type,
+        "logged_at": datetime.now().isoformat(),
+        "date": datetime.now().strftime("%Y-%m-%d"),
+    }
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            db.collection("hydration_logs").document(hydration_id).set(hydration_data)
+            logger.info(f"💧 Hydration log persisted to Firestore: {hydration_id}")
+    except Exception as e:
+        logger.warning(f"⚠️ Failed to persist hydration log: {e}")
+    
+>>>>>>> Stashed changes
     return {
         "status": "logged",
         "user_id": request.user_id,
@@ -888,10 +1062,42 @@ async def get_hydration(user_id: str, date: Optional[str] = None):
     
     target_date = date or datetime.now().strftime("%Y-%m-%d")
     
+<<<<<<< Updated upstream
     # Get hydration log
     hydration = meal_logger.get_hydration_log(user_id, target_date)
     
     total_ml = hydration.get("total_ml", 0)
+=======
+    # Get hydration log (in-memory)
+    hydration = meal_logger.get_hydration_log(user_id, target_date)
+    
+    total_ml = hydration.get("total_ml", 0)
+    hydration_log_entries = hydration.get("log", [])
+    
+    # ── Also load from Firestore if in-memory is empty ──
+    if total_ml == 0:
+        try:
+            db = get_db()
+            if db and not is_mock_mode():
+                docs = db.collection("hydration_logs").where(
+                    "user_id", "==", user_id
+                ).where("date", "==", target_date).get()
+                fs_total = 0
+                fs_log = []
+                for doc in docs:
+                    d = doc.to_dict()
+                    fs_total += d.get("amount_ml", 0)
+                    fs_log.append({
+                        "time": d.get("logged_at", "")[:16].split("T")[-1] if d.get("logged_at") else "",
+                        "amount_ml": d.get("amount_ml", 0),
+                        "beverage_type": d.get("beverage_type", "water"),
+                    })
+                if fs_total > 0:
+                    total_ml = fs_total
+                    hydration_log_entries = fs_log
+        except Exception as e:
+            logger.warning(f"⚠️ Firestore hydration read failed: {e}")
+>>>>>>> Stashed changes
     goal_ml = 2000  # Elderly recommended daily intake
     
     # Calculate glasses (250ml per glass)
@@ -922,7 +1128,11 @@ async def get_hydration(user_id: str, date: Optional[str] = None):
         "percent": round((total_ml / goal_ml) * 100, 1),
         "status": status,
         "recommendation": recommendation,
+<<<<<<< Updated upstream
         "log": hydration.get("log", [])
+=======
+        "log": hydration_log_entries
+>>>>>>> Stashed changes
     }
 
 
@@ -981,14 +1191,39 @@ async def get_nutrition_preferences(user_id: str):
     
     Returns dietary restrictions, budget level, dislikes, etc.
     """
+<<<<<<< Updated upstream
     prefs = _nutrition_preferences.get(user_id, {
+=======
+    default_prefs = {
+>>>>>>> Stashed changes
         "dietary_restrictions": [],
         "food_allergies": [],
         "food_dislikes": [],
         "budget_level": "medium",
         "calorie_target": None,
         "preferred_cuisines": []
+<<<<<<< Updated upstream
     })
+=======
+    }
+    
+    # Check in-memory first
+    prefs = _nutrition_preferences.get(user_id)
+    
+    # ── Load from Firestore if not in memory ──
+    if not prefs:
+        try:
+            db = get_db()
+            if db and not is_mock_mode():
+                doc = db.collection("nutrition_preferences").document(user_id).get()
+                if doc.exists:
+                    prefs = doc.to_dict()
+                    _nutrition_preferences[user_id] = prefs  # cache
+        except Exception as e:
+            logger.warning(f"⚠️ Firestore prefs read failed: {e}")
+    
+    prefs = prefs or default_prefs
+>>>>>>> Stashed changes
     
     return {
         "user_id": user_id,
@@ -1003,7 +1238,11 @@ async def update_nutrition_preferences(request: NutritionPreferencesRequest):
     
     Saves dietary restrictions, budget level, food dislikes, etc.
     """
+<<<<<<< Updated upstream
     _nutrition_preferences[request.user_id] = {
+=======
+    prefs = {
+>>>>>>> Stashed changes
         "dietary_restrictions": request.dietary_restrictions or [],
         "food_allergies": request.food_allergies or [],
         "food_dislikes": request.food_dislikes or [],
@@ -1012,8 +1251,193 @@ async def update_nutrition_preferences(request: NutritionPreferencesRequest):
         "preferred_cuisines": request.preferred_cuisines or []
     }
     
+<<<<<<< Updated upstream
     return {
         "status": "saved",
         "user_id": request.user_id,
         "preferences": _nutrition_preferences[request.user_id]
     }
+=======
+    _nutrition_preferences[request.user_id] = prefs
+    
+    # ── Persist to Firestore ──
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            db.collection("nutrition_preferences").document(request.user_id).set(prefs)
+            logger.info(f"📦 Nutrition preferences saved to Firestore for {request.user_id}")
+    except Exception as e:
+        logger.warning(f"⚠️ Failed to persist nutrition prefs: {e}")
+    
+    return {
+        "status": "saved",
+        "user_id": request.user_id,
+        "preferences": prefs
+    }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEAL SKIP NOTIFICATION CHECK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Expected meal times (hour thresholds) – if no log exists past this hour, it's skipped
+MEAL_DEADLINES = {
+    "breakfast": 10,    # Should be logged by 10 AM
+    "lunch": 14,        # Should be logged by 2 PM
+    "dinner": 20,       # Should be logged by 8 PM
+}
+
+
+@router.get("/check-meal-skips/{user_id}")
+async def check_meal_skips(user_id: str):
+    """
+    Check if the elder has skipped any meals today.
+    If yes, create alerts and send notifications to the elder and their caregivers.
+    Returns list of skipped meals.
+    """
+    _, _, _, meal_logger, _ = get_services()
+    
+    today = datetime.now().strftime("%Y-%m-%d")
+    current_hour = datetime.now().hour
+    
+    # Get today's logged meals (in-memory + Firestore)
+    logged_types = set()
+    
+    # In-memory check
+    daily_log = meal_logger.get_daily_log(user_id, today)
+    for m in daily_log.get("meals", []):
+        logged_types.add(m.get("type", "").lower())
+    
+    # Firestore check
+    try:
+        db = get_db()
+        if db and not is_mock_mode():
+            docs = db.collection("meal_logs").where(
+                "user_id", "==", user_id
+            ).where("date", "==", today).get()
+            for doc in docs:
+                d = doc.to_dict()
+                logged_types.add(d.get("meal_type", "").lower())
+    except Exception as e:
+        logger.warning(f"⚠️ Firestore meal check failed: {e}")
+    
+    # Determine skipped meals
+    skipped = []
+    for meal_type, deadline_hour in MEAL_DEADLINES.items():
+        if current_hour >= deadline_hour and meal_type not in logged_types:
+            skipped.append(meal_type)
+    
+    # Send notifications for skipped meals
+    if skipped:
+        _send_meal_skip_notifications(user_id, skipped)
+    
+    return {
+        "user_id": user_id,
+        "date": today,
+        "logged_meals": list(logged_types),
+        "skipped_meals": skipped,
+        "notifications_sent": len(skipped) > 0,
+    }
+
+
+def _send_meal_skip_notifications(user_id: str, skipped_meals: List[str]):
+    """Send FCM + in-app alert for skipped meals to elder and caregivers."""
+    
+    def _do_notify():
+        try:
+            db = get_db()
+            if not db or is_mock_mode():
+                logger.info(f"[MOCK] Meal skip notification for {user_id}: {skipped_meals}")
+                return
+            
+            meals_str = ", ".join(m.capitalize() for m in skipped_meals)
+            
+            # ── Create alert in Firestore ──
+            alert_id = f"meal_skip_{uuid.uuid4().hex[:8]}"
+            alert = {
+                "id": alert_id,
+                "type": "meal_skipped",
+                "severity": "warning",
+                "title": "Meal Skipped",
+                "description": f"You haven't logged your {meals_str} today. Please eat or log your meal.",
+                "elderly_id": user_id,
+                "resolved": False,
+                "acknowledged": False,
+                "created_at": datetime.now().isoformat(),
+                "skipped_meals": skipped_meals,
+            }
+            db.collection("alerts").document(alert_id).set(alert)
+            
+            # ── Get elder's name and FCM token ──
+            elder_name = "Elder"
+            elder_tokens = []
+            user_doc = db.collection("users").document(user_id).get()
+            if user_doc.exists:
+                user_data = user_doc.to_dict()
+                elder_name = user_data.get("name", user_data.get("displayName", "Elder"))
+                elder_fcm = user_data.get("fcm_token")
+                if elder_fcm:
+                    elder_tokens.append(elder_fcm)
+            
+            # ── Send to elder ──
+            if elder_tokens:
+                elder_notification = PushNotification(
+                    title="🍽️ Meal Reminder",
+                    body=f"You haven't logged your {meals_str} yet. Don't forget to eat!",
+                    notification_type=NotificationType.MEAL_SKIPPED,
+                    data={"user_id": user_id, "skipped_meals": ",".join(skipped_meals), "action": "log_meal"}
+                )
+                import asyncio
+                try:
+                    loop = asyncio.get_event_loop()
+                    if loop.is_running():
+                        asyncio.ensure_future(fcm_service.send_to_multiple(elder_tokens, elder_notification))
+                    else:
+                        loop.run_until_complete(fcm_service.send_to_multiple(elder_tokens, elder_notification))
+                except RuntimeError:
+                    loop = asyncio.new_event_loop()
+                    loop.run_until_complete(fcm_service.send_to_multiple(elder_tokens, elder_notification))
+            
+            # ── Find connected caregivers and notify ──
+            caregiver_tokens = []
+            connections = db.collection("connections").where(
+                "elderly_id", "==", user_id
+            ).where("status", "==", "active").get()
+            
+            for conn in connections:
+                conn_data = conn.to_dict()
+                linked_id = conn_data.get("linked_user_id", "")
+                if linked_id:
+                    cg_doc = db.collection("users").document(linked_id).get()
+                    if cg_doc.exists:
+                        cg_data = cg_doc.to_dict()
+                        cg_token = cg_data.get("fcm_token")
+                        if cg_token:
+                            caregiver_tokens.append(cg_token)
+            
+            if caregiver_tokens:
+                cg_notification = PushNotification(
+                    title="🍽️ Meal Skipped Alert",
+                    body=f"{elder_name} hasn't logged their {meals_str} today.",
+                    notification_type=NotificationType.MEAL_SKIPPED,
+                    data={"elderly_id": user_id, "elderly_name": elder_name, "skipped_meals": ",".join(skipped_meals), "action": "view_nutrition"}
+                )
+                import asyncio
+                try:
+                    loop = asyncio.get_event_loop()
+                    if loop.is_running():
+                        asyncio.ensure_future(fcm_service.send_to_multiple(caregiver_tokens, cg_notification))
+                    else:
+                        loop.run_until_complete(fcm_service.send_to_multiple(caregiver_tokens, cg_notification))
+                except RuntimeError:
+                    loop = asyncio.new_event_loop()
+                    loop.run_until_complete(fcm_service.send_to_multiple(caregiver_tokens, cg_notification))
+            
+            logger.info(f"🔔 Meal skip notifications sent - Elder tokens: {len(elder_tokens)}, CG tokens: {len(caregiver_tokens)}")
+                    
+        except Exception as e:
+            logger.error(f"❌ Meal skip notification error: {e}")
+    
+    # Run in background thread
+    threading.Thread(target=_do_notify, daemon=True).start()
+>>>>>>> Stashed changes
