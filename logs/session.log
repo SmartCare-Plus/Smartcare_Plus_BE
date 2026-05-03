@@ -1,0 +1,43 @@
+================================================================================
+SMARTCARE+ SESSION LOG
+Started: 2026-05-03 16:08:21
+================================================================================
+
+2026-05-03 16:08:21 | INFO     | smartcare.main | 🚀 SMARTCARE+ API starting up...
+2026-05-03 16:08:21 | INFO     | core.database | 🔥 Firebase Admin SDK initialized for project: smartcare-plus-c9617
+2026-05-03 16:08:21 | INFO     | core.database | ✅ Connected to Firestore successfully!
+2026-05-03 16:08:21 | INFO     | smartcare.main | 🔥 Firebase connected
+2026-05-03 16:08:21 | INFO     | core.websocket.manager | 💓 Heartbeat started (interval: 30s)
+2026-05-03 16:08:21 | INFO     | smartcare.main | 💓 WebSocket heartbeat started
+2026-05-03 16:08:21 | INFO     | core.notifications | 🔔 FCM Service initialized
+2026-05-03 16:08:21 | INFO     | smartcare.main | 🧠 Pre-initializing ML models in background...
+2026-05-03 16:08:21 | INFO     | guardian_service.router | 🚀 Pre-initializing ML models...
+2026-05-03 16:08:21 | INFO     | guardian_service.models.video_classifier | VideoClassifier initialized
+2026-05-03 16:08:21 | INFO     | guardian_service.models.video_classifier |   SavedModel: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_savedmodel_20260103T071820Z
+2026-05-03 16:08:21 | INFO     | guardian_service.models.video_classifier |   Keras Model: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_phase1_20260102_233146.keras
+2026-05-03 16:08:21 | INFO     | guardian_service.models.video_classifier |   Weights: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_weights_20260103T071820Z.weights.h5
+2026-05-03 16:08:21 | INFO     | guardian_service.models.video_classifier |   Classes: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\class_mapping_20260102_233146.json
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | SkeletonFallDetector initialized
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | MotionFallDetector initialized
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector initialized (lazy loading)
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector: MediaPipe Pose Landmarker initialized from D:\smartCarePlus_v2\smartCarePlus\backend\scripts\pose_landmarker_full.task
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector initialized (DL enabled: True, Skeleton enabled: True)
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | SkeletonFallDetector initialized
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | MotionFallDetector initialized
+2026-05-03 16:08:21 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector initialized (lazy loading)
+2026-05-03 16:08:22 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector: MediaPipe Pose Landmarker initialized from D:\smartCarePlus_v2\smartCarePlus\backend\scripts\pose_landmarker_full.task
+2026-05-03 16:08:22 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector initialized (DL enabled: True, Skeleton enabled: True)
+2026-05-03 16:08:22 | INFO     | guardian_service.models.hybrid_fall_detector | LiveFallDetector initialized (DL: True, FPS: 15)
+2026-05-03 16:08:22 | INFO     | guardian_service.models.video_classifier | Loaded class mapping: {0: 'adl', 1: 'arthritis_gait', 2: 'fall', 3: 'good_gait', 4: 'tug'}
+2026-05-03 16:08:22 | INFO     | guardian_service.models.video_classifier | Loading TensorFlow...
+2026-05-03 16:08:22 | INFO     | guardian_service.models.video_classifier | Loading SavedModel via TFSMLayer from: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_savedmodel_20260103T071820Z
+2026-05-03 16:09:10 | INFO     | guardian_service.models.video_classifier |   SavedModel output key: output_0
+2026-05-03 16:09:10 | INFO     | guardian_service.models.video_classifier | ✅ Model loaded successfully from SavedModel via TFSMLayer!
+2026-05-03 16:09:10 | INFO     | guardian_service.models.video_classifier |   Input shape: (None, 32, 224, 224, 3)
+2026-05-03 16:09:10 | INFO     | guardian_service.models.video_classifier |   Output shape: (None, 5)
+2026-05-03 16:09:10 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector: Model loaded
+2026-05-03 16:09:10 | INFO     | guardian_service.router | ✅ ML models loaded in 49.06s
+2026-05-03 16:09:10 | INFO     | guardian_service.router | 🔥 Running warmup detection...
+2026-05-03 16:09:10 | WARNING  | guardian_service.router |   ⚠️ No test video found for warmup
+2026-05-03 16:09:10 | INFO     | guardian_service.router | 🎉 ML initialization complete! Total time: 49.06s
+2026-05-03 16:09:10 | INFO     | smartcare.main | ✅ SMARTCARE+ API ready!
