@@ -1,0 +1,1527 @@
+================================================================================
+SMARTCARE+ SESSION LOG
+Started: 2026-05-03 14:24:55
+================================================================================
+
+2026-05-03 14:24:55 | INFO     | smartcare.main | 🚀 SMARTCARE+ API starting up...
+2026-05-03 14:24:55 | INFO     | core.database | 🔥 Firebase Admin SDK initialized for project: smartcare-plus-c9617
+2026-05-03 14:24:55 | INFO     | core.database | ✅ Connected to Firestore successfully!
+2026-05-03 14:24:55 | INFO     | smartcare.main | 🔥 Firebase connected
+2026-05-03 14:24:55 | INFO     | core.websocket.manager | 💓 Heartbeat started (interval: 30s)
+2026-05-03 14:24:55 | INFO     | smartcare.main | 💓 WebSocket heartbeat started
+2026-05-03 14:24:55 | INFO     | core.notifications | 🔔 FCM Service initialized
+2026-05-03 14:24:55 | INFO     | smartcare.main | 🧠 Pre-initializing ML models in background...
+2026-05-03 14:24:55 | INFO     | guardian_service.router | 🚀 Pre-initializing ML models...
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier | VideoClassifier initialized
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier |   SavedModel: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_savedmodel_20260103T071820Z
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier |   Keras Model: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_phase1_20260102_233146.keras
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier |   Weights: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_weights_20260103T071820Z.weights.h5
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier |   Classes: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\class_mapping_20260102_233146.json
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | SkeletonFallDetector initialized
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | MotionFallDetector initialized
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector initialized (lazy loading)
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector: MediaPipe Pose Landmarker initialized from D:\smartCarePlus_v2\smartCarePlus\backend\scripts\pose_landmarker_full.task
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector initialized (DL enabled: True, Skeleton enabled: True)
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | SkeletonFallDetector initialized
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | MotionFallDetector initialized
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector initialized (lazy loading)
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector: MediaPipe Pose Landmarker initialized from D:\smartCarePlus_v2\smartCarePlus\backend\scripts\pose_landmarker_full.task
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | HybridFallDetector initialized (DL enabled: True, Skeleton enabled: True)
+2026-05-03 14:24:55 | INFO     | guardian_service.models.hybrid_fall_detector | LiveFallDetector initialized (DL: True, FPS: 15)
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier | Loaded class mapping: {0: 'adl', 1: 'arthritis_gait', 2: 'fall', 3: 'good_gait', 4: 'tug'}
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier | Loading TensorFlow...
+2026-05-03 14:24:55 | INFO     | guardian_service.models.video_classifier | Loading SavedModel via TFSMLayer from: D:\smartCarePlus_v2\smartCarePlus\backend\ml_models\guardian\guardian_savedmodel_20260103T071820Z
+2026-05-03 14:25:52 | INFO     | guardian_service.models.video_classifier |   SavedModel output key: output_0
+2026-05-03 14:25:52 | INFO     | guardian_service.models.video_classifier | ✅ Model loaded successfully from SavedModel via TFSMLayer!
+2026-05-03 14:25:52 | INFO     | guardian_service.models.video_classifier |   Input shape: (None, 32, 224, 224, 3)
+2026-05-03 14:25:52 | INFO     | guardian_service.models.video_classifier |   Output shape: (None, 5)
+2026-05-03 14:25:52 | INFO     | guardian_service.models.hybrid_fall_detector | DeepLearningFallDetector: Model loaded
+2026-05-03 14:25:52 | INFO     | guardian_service.router | ✅ ML models loaded in 57.65s
+2026-05-03 14:25:52 | INFO     | guardian_service.router | 🔥 Running warmup detection...
+2026-05-03 14:25:52 | INFO     | guardian_service.router |   📂 Test video: fall-01-cam0_cropped.mp4
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   👁️ Landmark visibility: nose=1.00, l_hip=1.00, r_hip=1.00, l_ankle=0.91, r_ankle=0.95. History: head=0
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.0000 (thresh>0.08), h/w=5.70 (thresh<0.8), spine=88.6° (thresh<55), com_vel=0.0000 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.0000 (thresh>0.08), h/w=5.44 (thresh<0.8), spine=88.5° (thresh<55), com_vel=0.0000 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.0000 (thresh>0.08), h/w=5.29 (thresh<0.8), spine=87.7° (thresh<55), com_vel=0.0000 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.0000 (thresh>0.08), h/w=5.01 (thresh<0.8), spine=88.7° (thresh<55), com_vel=0.0000 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.0036 (thresh>0.08), h/w=5.93 (thresh<0.8), spine=86.1° (thresh<55), com_vel=0.0140 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📐 Skeleton metrics: head_vel=0.1580 (thresh>0.08), h/w=0.93 (thresh<0.8), spine=18.0° (thresh<55), com_vel=0.0853 (thresh>0.05)
+2026-05-03 14:25:54 | DEBUG    | guardian_service.models.hybrid_fall_detector |   📊 Skeleton score=1.00 from: vel=0.69, spine=0.17, com=0.17
+2026-05-03 14:27:24 | INFO     | guardian_service.router |   ✅ Warmup detection complete in 91.19s
+2026-05-03 14:27:24 | INFO     | guardian_service.router |   📊 Test Result: Fall=YES, Confidence=100.0%
+2026-05-03 14:27:24 | INFO     | guardian_service.router |   📈 Scores: Skeleton=100.0%, Motion=92.6%, DL=73.8%
+2026-05-03 14:27:24 | INFO     | guardian_service.router | 🎉 ML initialization complete! Total time: 148.84s
+2026-05-03 14:27:24 | INFO     | smartcare.main | ✅ SMARTCARE+ API ready!
+2026-05-03 14:28:02 | INFO     | smartcare.requests | 
+2026-05-03 14:28:02 | INFO     | smartcare.requests | ➡️  🔓 GET /health
+2026-05-03 14:28:02 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 14:28:02 | DEBUG    | smartcare.requests |     User-Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) W
+2026-05-03 14:28:02 | INFO     | smartcare.requests | ✅ GET /health → 200 (16.8ms)
+2026-05-03 14:32:30 | INFO     | smartcare.requests | 
+2026-05-03 14:32:30 | INFO     | smartcare.requests | ➡️  🔓 GET /api/guardian/videos
+2026-05-03 14:32:30 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 14:32:30 | DEBUG    | smartcare.requests |     User-Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) W
+2026-05-03 14:32:30 | INFO     | guardian_service.router | 📋 GET /videos - Listing all demo videos
+2026-05-03 14:32:30 | INFO     | guardian_service.router |   📁 Video directory: D:\smartCarePlus_v2\smartCarePlus\backend\media\simulation_footage\guardian
+2026-05-03 14:32:30 | INFO     | guardian_service.router |   📁 Directory exists: True
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ walking_normal_1: walking_normal_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ walking_normal_2: walking_normal_2.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ walking_slow_1: walking_slow_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ sitting_resting_1: sitting_resting_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ lying_down_1: lying_down_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ standing_idle_1: standing_idle_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ gait_normal_1: gait_normal_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ gait_abnormal_1: gait_abnormal_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ fall_indoor_1: fall_indoor_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | WARNING  | guardian_service.router |   ❌ fall_outdoor_1: fall_outdoor_1.mp4 (NOT FOUND)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ fall-01-cam0: fall/fall-01-cam0_cropped.mp4 (0.07 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ fall-02-cam0: fall/fall-02-cam0_cropped.mp4 (0.06 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ fall-03-cam0: fall/fall-03-cam0_cropped.mp4 (0.14 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ fall-04-cam0: fall/fall-04-cam0_cropped.mp4 (0.06 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ fall-05-cam0: fall/fall-05-cam0_cropped.mp4 (0.07 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ adl-01-cam0: adl/adl-01-cam0_cropped.mp4 (0.10 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ adl-02-cam0: adl/adl-02-cam0_cropped.mp4 (0.11 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ adl-03-cam0: adl/adl-03-cam0_cropped.mp4 (0.12 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ adl-04-cam0: adl/adl-04-cam0_cropped.mp4 (0.11 MB)
+2026-05-03 14:32:30 | DEBUG    | guardian_service.router |   ✅ adl-05-cam0: adl/adl-05-cam0_cropped.mp4 (0.14 MB)
+2026-05-03 14:32:30 | INFO     | guardian_service.router |   📊 Total: 20, Available: 10
+2026-05-03 14:32:30 | INFO     | smartcare.requests | ✅ GET /api/guardian/videos → 200 (346.5ms)
+2026-05-03 14:40:04 | INFO     | smartcare.requests | 
+2026-05-03 14:40:04 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:40:04 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:04 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:04 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:40:04 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:40:04 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:40:04 | DEBUG    | urllib3.util.retry | Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-05-03 14:40:04 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:40:04 | DEBUG    | cachecontrol.controller | No cache entry available
+2026-05-03 14:40:04 | DEBUG    | cachecontrol.controller | No cache entry available
+2026-05-03 14:40:04 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): www.googleapis.com:443
+2026-05-03 14:40:06 | DEBUG    | urllib3.connectionpool | https://www.googleapis.com:443 "GET /robot/v1/metadata/x509/securetoken@system.gserviceaccount.com HTTP/1.1" 200 1551
+2026-05-03 14:40:06 | DEBUG    | cachecontrol.controller | Updating cache with response from "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com"
+2026-05-03 14:40:06 | DEBUG    | cachecontrol.controller | Caching b/c date exists and max-age > 0
+2026-05-03 14:40:07 | DEBUG    | smartcare.auth | ✅ Token verified in 2335.9ms
+2026-05-03 14:40:07 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:40:08 | DEBUG    | urllib3.connectionpool | Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2026-05-03 14:40:11 | DEBUG    | urllib3.connectionpool | https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2026-05-03 14:40:12 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (7632.5ms)
+2026-05-03 14:40:12 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:40:16 | INFO     | smartcare.requests | 
+2026-05-03 14:40:16 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:40:16 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:16 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:16 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:40:16 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:40:16 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:40:17 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:40:17 | DEBUG    | cachecontrol.controller | Current age based on date: 45
+2026-05-03 14:40:17 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:40:17 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:40:17 | DEBUG    | cachecontrol.controller | 22129 > 45
+2026-05-03 14:40:17 | DEBUG    | smartcare.auth | ✅ Token verified in 10.0ms
+2026-05-03 14:40:17 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:40:17 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (213.2ms)
+2026-05-03 14:40:17 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔓 GET /api/guardian/emergency-contacts/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ✅ GET /api/guardian/emergency-contacts/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (651.4ms)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/connections/my-caregivers
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/compliance/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | INFO     | smartcare.requests | 
+2026-05-03 14:40:18 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:18 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:18 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:40:18 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:40:18 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:40:18 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:40:18 | DEBUG    | cachecontrol.controller | Current age based on date: 46
+2026-05-03 14:40:18 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:40:18 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:40:18 | DEBUG    | cachecontrol.controller | 22129 > 46
+2026-05-03 14:40:18 | DEBUG    | smartcare.auth | ✅ Token verified in 8.1ms
+2026-05-03 14:40:18 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:40:19 | INFO     | smartcare.physio.patient | 📊 PatientProfileStore connected to Firestore
+2026-05-03 14:40:19 | DEBUG    | smartcare.physio.patient | 📥 Loaded profile from Firestore: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:19 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:40:19 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:40:19 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:40:19 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:40:19 | DEBUG    | cachecontrol.controller | Current age based on date: 47
+2026-05-03 14:40:19 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:40:19 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:40:19 | DEBUG    | cachecontrol.controller | 22129 > 47
+2026-05-03 14:40:19 | DEBUG    | smartcare.auth | ✅ Token verified in 6.7ms
+2026-05-03 14:40:19 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:40:19 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (953.1ms)
+2026-05-03 14:40:19 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:40:19 | INFO     | smartcare.physio.plan_generator | 📊 ExercisePlanGenerator connected to Firestore
+2026-05-03 14:40:20 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 1 plans from Firestore for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:20 | INFO     | smartcare.physio | 📋 Loaded existing plan for user 3omgr5c3EpZP8dRHiw0dPteWPKt1: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_fc9fe606 (completed_exercises=[])
+2026-05-03 14:40:23 | DEBUG    | h5py._conv | Creating converter from 3 to 5
+2026-05-03 14:40:24 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 1 plans from Firestore for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:24 | INFO     | smartcare.physio | 📋 Loaded existing plan for user 3omgr5c3EpZP8dRHiw0dPteWPKt1: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_fc9fe606 (completed_exercises=[])
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/connections/my-caregivers → 200 (6279.5ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6278.8ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6282.9ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ⚠️ GET /api/physio/compliance/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 404 (6281.9ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6281.9ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6281.9ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6281.9ms)
+2026-05-03 14:40:24 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6280.6ms)
+2026-05-03 14:40:25 | INFO     | smartcare.requests | 
+2026-05-03 14:40:25 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:40:25 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:40:25 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:40:25 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (175.2ms)
+2026-05-03 14:41:33 | INFO     | smartcare.requests | 
+2026-05-03 14:41:33 | INFO     | smartcare.requests | ➡️  🔐 POST /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:41:33 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:41:33 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:41:36 | DEBUG    | smartcare.physio.patient | 💾 Saved profile to Firestore: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:41:36 | INFO     | smartcare.physio.patient | 📋 Updated patient profile for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:41:36 | INFO     | smartcare.requests | ✅ POST /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (2627.8ms)
+2026-05-03 14:41:36 | INFO     | smartcare.requests | 
+2026-05-03 14:41:36 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:41:36 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:41:36 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:41:36 | INFO     | smartcare.requests | ✅ GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6.0ms)
+2026-05-03 14:41:36 | INFO     | smartcare.requests | 
+2026-05-03 14:41:36 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:41:36 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:41:36 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:41:36 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (6.6ms)
+2026-05-03 14:42:07 | INFO     | smartcare.requests | 
+2026-05-03 14:42:07 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:42:07 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:42:07 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[196:1644]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:12380]
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:42:07 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000598272.jpg
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | 📏 Image size: 39892 bytes
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000598272.jpg
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 39892
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:42:07 | DEBUG    | PIL.TiffImagePlugin | tag: ImageWidth (256) - type: long (4) - value: b'\x00\x00\x02r'
+2026-05-03 14:42:07 | DEBUG    | PIL.TiffImagePlugin | tag: ImageLength (257) - type: long (4) - value: b'\x00\x00\x02\x1d'
+2026-05-03 14:42:07 | DEBUG    | PIL.TiffImagePlugin | tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00>'
+2026-05-03 14:42:07 | DEBUG    | PIL.TiffImagePlugin | tag: Orientation (274) - type: short (3) - value: b'\x00\x00'
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 626x541
+2026-05-03 14:42:07 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #1: acorn_squash (23.84%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #2: spaghetti_squash (20.29%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #3: custard_apple (19.63%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #4: tennis_ball (9.50%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #5: fig (4.56%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #6: head_cabbage (2.01%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #7: cucumber (1.27%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #8: rugby_ball (0.64%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #9: croquet_ball (0.58%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier |   #10: Granny_Smith (0.40%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: acorn_squash -> Squash (23.84%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: spaghetti_squash -> Spaghetti Squash (20.29%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: custard_apple -> Custard Apple (19.63%)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition.classifier | 📊 Found 3 food classes, 3 total
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |   #1: Squash (class: acorn_squash)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Confidence: 23.84%
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |   #2: Spaghetti Squash (class: spaghetti_squash)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Confidence: 20.29%
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |   #3: Custard Apple (class: custard_apple)
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Confidence: 19.63%
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Squash
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |    Found 3 matches in local DB
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Spaghetti Squash
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |    Found 3 matches in local DB
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Custard Apple
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition |    Found 1 matches in local DB
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ✅ PRIMARY FOOD (from local DB): Butternut Squash Soup
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = Butternut Squash Soup
+2026-05-03 14:42:08 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:42:08 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (1889.9ms)
+2026-05-03 14:43:25 | INFO     | smartcare.requests | 
+2026-05-03 14:43:25 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:43:25 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:43:25 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7206]
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:43:26 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000619605.jpg
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 📏 Image size: 141870 bytes
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000619605.jpg
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 141870
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:43:26 | DEBUG    | PIL.TiffImagePlugin | tag: ImageWidth (256) - type: long (4) - value: b'\x00\x00\x02\xc1'
+2026-05-03 14:43:26 | DEBUG    | PIL.TiffImagePlugin | tag: ImageLength (257) - type: long (4) - value: b'\x00\x00\x04\x00'
+2026-05-03 14:43:26 | DEBUG    | PIL.TiffImagePlugin | tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00>'
+2026-05-03 14:43:26 | DEBUG    | PIL.TiffImagePlugin | tag: Orientation (274) - type: short (3) - value: b'\x00\x01'
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 705x1024
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #1: soup_bowl (58.47%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #2: consomme (32.40%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #3: hot_pot (3.72%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #4: butternut_squash (0.60%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #5: caldron (0.31%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #6: ladle (0.31%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #7: cup (0.14%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #8: menu (0.13%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #9: plate (0.09%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier |   #10: potpie (0.08%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: soup_bowl -> Soup/Curry (58.47%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: consomme -> Consommé Soup (32.40%)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition.classifier | 📊 Found 2 food classes, 2 total
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |   #1: Soup/Curry (class: soup_bowl)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |        Confidence: 58.47%
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |   #2: Consommé Soup (class: consomme)
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |        Confidence: 32.40%
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Soup/Curry
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |    Found 16 matches in local DB
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Consommé Soup
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition |    Found 5 matches in local DB
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ✅ PRIMARY FOOD (from local DB): Tomato Soup
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = Tomato Soup
+2026-05-03 14:43:26 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:26 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (505.3ms)
+2026-05-03 14:43:33 | INFO     | smartcare.requests | 
+2026-05-03 14:43:33 | INFO     | smartcare.requests | ➡️  🔐 POST /api/nutrition/log-meal
+2026-05-03 14:43:33 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:43:33 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:43:33 | INFO     | smartcare.nutrition | ✅ Meal logged: 1 foods, 90 cal for user 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:43:33 | INFO     | smartcare.nutrition | 📦 Meal log persisted to Firestore: 894bf74c
+2026-05-03 14:43:33 | INFO     | smartcare.requests | ✅ POST /api/nutrition/log-meal → 200 (334.0ms)
+2026-05-03 14:43:34 | INFO     | smartcare.requests | 
+2026-05-03 14:43:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:43:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:43:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:43:34 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (4.9ms)
+2026-05-03 14:43:34 | INFO     | smartcare.requests | 
+2026-05-03 14:43:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:43:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:43:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:43:34 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (219.4ms)
+2026-05-03 14:43:43 | INFO     | smartcare.requests | 
+2026-05-03 14:43:43 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:43:43 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:43:43 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[196:11780]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2862]
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:43:43 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000619605.jpg
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | 📏 Image size: 141870 bytes
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000619605.jpg
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 141870
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:43:43 | DEBUG    | PIL.TiffImagePlugin | tag: ImageWidth (256) - type: long (4) - value: b'\x00\x00\x02\xc1'
+2026-05-03 14:43:43 | DEBUG    | PIL.TiffImagePlugin | tag: ImageLength (257) - type: long (4) - value: b'\x00\x00\x04\x00'
+2026-05-03 14:43:43 | DEBUG    | PIL.TiffImagePlugin | tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00>'
+2026-05-03 14:43:43 | DEBUG    | PIL.TiffImagePlugin | tag: Orientation (274) - type: short (3) - value: b'\x00\x01'
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 705x1024
+2026-05-03 14:43:43 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #1: soup_bowl (58.47%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #2: consomme (32.40%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #3: hot_pot (3.72%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #4: butternut_squash (0.60%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #5: caldron (0.31%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #6: ladle (0.31%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #7: cup (0.14%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #8: menu (0.13%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #9: plate (0.09%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier |   #10: potpie (0.08%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: soup_bowl -> Soup/Curry (58.47%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: consomme -> Consommé Soup (32.40%)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition.classifier | 📊 Found 2 food classes, 2 total
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |   #1: Soup/Curry (class: soup_bowl)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |        Confidence: 58.47%
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |   #2: Consommé Soup (class: consomme)
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |        Confidence: 32.40%
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Soup/Curry
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |    Found 16 matches in local DB
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Consommé Soup
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition |    Found 5 matches in local DB
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ✅ PRIMARY FOOD (from local DB): Tomato Soup
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = Tomato Soup
+2026-05-03 14:43:44 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:43:44 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (811.4ms)
+2026-05-03 14:44:21 | INFO     | smartcare.requests | 
+2026-05-03 14:44:21 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:44:21 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:44:21 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[196:1644]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:15928]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:44:21 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1447]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:15928]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:15928]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:22 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:23 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:24 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:25 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:26 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10135]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:27 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:17376]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:17376]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:28 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:15928]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:7240]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:15928]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:14480]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:18824]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:16095]
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:44:29 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000619535.png
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 📏 Image size: 974671 bytes
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000619535.png
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 974671
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | STREAM b'IHDR' 16 13
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | STREAM b'eXIf' 41 98
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | STREAM b'sRGB' 151 1
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | STREAM b'sBIT' 164 4
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | b'sBIT' 164 4 (unknown)
+2026-05-03 14:44:29 | DEBUG    | PIL.PngImagePlugin | STREAM b'IDAT' 180 8192
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 1024x1024
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #1: screw (16.79%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #2: buckle (12.69%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #3: mortar (11.42%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #4: face_powder (5.51%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #5: spindle (3.39%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #6: pot (3.00%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #7: bucket (2.03%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #8: bagel (1.70%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #9: chambered_nautilus (1.35%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier |   #10: sundial (1.21%)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition.classifier | 📊 Found 0 food classes, 3 total
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |   #1: Screw (class: screw)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Confidence: 16.79%
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Is Food: False
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |   #2: Buckle (class: buckle)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Confidence: 12.69%
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Is Food: False
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |   #3: Mortar (class: mortar)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Confidence: 11.42%
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |        Is Food: False
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Screw
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |    Found 0 matches in local DB
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Buckle
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |    Found 0 matches in local DB
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Mortar
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition |    Found 0 matches in local DB
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ⚠️ PRIMARY FOOD (estimated): Screw (no local DB match)
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = Screw
+2026-05-03 14:44:29 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:44:29 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (8518.4ms)
+2026-05-03 14:46:09 | INFO     | smartcare.requests | 
+2026-05-03 14:46:09 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:46:09 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:46:09 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[196:11780]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:6193]
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:46:09 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000598259.jpg
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 📏 Image size: 26465 bytes
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000598259.jpg
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 26465
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:46:09 | DEBUG    | PIL.TiffImagePlugin | tag: ImageWidth (256) - type: long (4) - value: b'\x00\x00\x02*'
+2026-05-03 14:46:09 | DEBUG    | PIL.TiffImagePlugin | tag: ImageLength (257) - type: long (4) - value: b'\x00\x00\x02*'
+2026-05-03 14:46:09 | DEBUG    | PIL.TiffImagePlugin | tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00>'
+2026-05-03 14:46:09 | DEBUG    | PIL.TiffImagePlugin | tag: Orientation (274) - type: short (3) - value: b'\x00\x00'
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 554x554
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #1: French_loaf (55.31%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #2: chocolate_sauce (5.77%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #3: face_powder (4.85%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #4: eggnog (4.60%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #5: hamper (4.10%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #6: toaster (2.75%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #7: honeycomb (1.99%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #8: bassinet (1.03%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #9: cradle (0.99%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier |   #10: pencil_sharpener (0.88%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: French_loaf -> French Bread (55.31%)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition.classifier | 📊 Found 1 food classes, 1 total
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition |   #1: French Bread (class: French_loaf)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition |        Confidence: 55.31%
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: French Bread
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition |    Found 0 matches in local DB
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ⚠️ PRIMARY FOOD (estimated): French Bread (no local DB match)
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = French Bread
+2026-05-03 14:46:09 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:46:09 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (202.7ms)
+2026-05-03 14:47:53 | INFO     | smartcare.requests | 
+2026-05-03 14:47:53 | INFO     | smartcare.requests | ➡️  🔐 POST /api/physio/plan/generate/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:47:53 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:47:53 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:47:54 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 1 plans from Firestore for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:47:55 | DEBUG    | smartcare.physio.plan_generator | 💾 Saved plan to Firestore: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_faad2ee6
+2026-05-03 14:47:55 | INFO     | smartcare.physio.plan_generator | 📅 Generated daily plan: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_faad2ee6 | 11 exercises | ~19 min | difficulty=moderate
+2026-05-03 14:47:55 | INFO     | smartcare.requests | ✅ POST /api/physio/plan/generate/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1599.5ms)
+2026-05-03 14:48:13 | INFO     | smartcare.requests | 
+2026-05-03 14:48:13 | INFO     | smartcare.requests | ➡️  🔓 POST /api/nutrition/analyze-food
+2026-05-03 14:48:13 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:13 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_begin with no data
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[74:86]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[88:112]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_field with data[114:133]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_value with data[135:192]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_header_end with no data
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_headers_finished with no data
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[196:3092]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11584]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:48:13 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:1448]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:4344]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:8688]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:2896]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:10136]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:5792]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:13032]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_data with data[0:11550]
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_part_end with no data
+2026-05-03 14:48:14 | DEBUG    | python_multipart.multipart | Calling on_end with no data
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 🍕 FOOD ANALYSIS REQUEST RECEIVED
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 📁 Image filename: scaled_1000619605.jpg
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 📄 Content-Type: application/octet-stream
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 📏 Image size: 141870 bytes
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ✅ Valid file extension: scaled_1000619605.jpg
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 🔍 Starting MobileNetV2 CNN classification...
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | ==================================================
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 🍕 FOOD CLASSIFIER - classify_image() called
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 📏 Image bytes: 141870
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 🎯 top_k=5, threshold=0.1
+2026-05-03 14:48:14 | DEBUG    | PIL.TiffImagePlugin | tag: ImageWidth (256) - type: long (4) - value: b'\x00\x00\x02\xc1'
+2026-05-03 14:48:14 | DEBUG    | PIL.TiffImagePlugin | tag: ImageLength (257) - type: long (4) - value: b'\x00\x00\x04\x00'
+2026-05-03 14:48:14 | DEBUG    | PIL.TiffImagePlugin | tag: ExifIFD (34665) - type: long (4) - value: b'\x00\x00\x00>'
+2026-05-03 14:48:14 | DEBUG    | PIL.TiffImagePlugin | tag: Orientation (274) - type: short (3) - value: b'\x00\x01'
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 📷 Image loaded: 705x1024
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 🧠 Running MobileNetV2 inference...
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 🔍 RAW ImageNet Predictions (top 10):
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #1: soup_bowl (58.47%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #2: consomme (32.40%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #3: hot_pot (3.72%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #4: butternut_squash (0.60%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #5: caldron (0.31%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #6: ladle (0.31%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #7: cup (0.14%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #8: menu (0.13%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #9: plate (0.09%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier |   #10: potpie (0.08%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | ----------------------------------------
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: soup_bowl -> Soup/Curry (58.47%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | ✅ FOOD: consomme -> Consommé Soup (32.40%)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition.classifier | 📊 Found 2 food classes, 2 total
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ✅ Classification completed - Success: True
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 🧠 MobileNetV2 CNN PREDICTIONS:
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |   #1: Soup/Curry (class: soup_bowl)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |        Confidence: 58.47%
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |   #2: Consommé Soup (class: consomme)
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |        Confidence: 32.40%
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |        Is Food: True
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ----------------------------------------
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Soup/Curry
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |    Found 16 matches in local DB
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 🔎 Searching local DB for: Consommé Soup
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition |    Found 5 matches in local DB
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ✅ PRIMARY FOOD (from local DB): Tomato Soup
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | 📤 RETURNING: primary_food = Tomato Soup
+2026-05-03 14:48:14 | INFO     | smartcare.nutrition | ============================================================
+2026-05-03 14:48:14 | INFO     | smartcare.requests | ✅ POST /api/nutrition/analyze-food → 200 (516.5ms)
+2026-05-03 14:48:16 | INFO     | smartcare.requests | 
+2026-05-03 14:48:16 | INFO     | smartcare.requests | ➡️  🔐 POST /api/nutrition/log-meal
+2026-05-03 14:48:16 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:16 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:16 | INFO     | smartcare.nutrition | ✅ Meal logged: 1 foods, 90 cal for user 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:17 | INFO     | smartcare.nutrition | 📦 Meal log persisted to Firestore: 33dc48c8
+2026-05-03 14:48:17 | INFO     | smartcare.requests | ✅ POST /api/nutrition/log-meal → 200 (483.1ms)
+2026-05-03 14:48:17 | INFO     | smartcare.requests | 
+2026-05-03 14:48:17 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:17 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:17 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:17 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (5.0ms)
+2026-05-03 14:48:17 | INFO     | smartcare.requests | 
+2026-05-03 14:48:17 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:17 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:17 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:17 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (202.2ms)
+2026-05-03 14:48:24 | INFO     | smartcare.requests | 
+2026-05-03 14:48:24 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:24 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:24 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:24 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (5.0ms)
+2026-05-03 14:48:24 | INFO     | smartcare.requests | 
+2026-05-03 14:48:24 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:24 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:24 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:24 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (254.6ms)
+2026-05-03 14:48:25 | INFO     | smartcare.requests | 
+2026-05-03 14:48:25 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/check-meal-skips/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:25 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:25 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:25 | INFO     | smartcare.requests | ✅ GET /api/nutrition/check-meal-skips/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (300.9ms)
+2026-05-03 14:48:26 | INFO     | smartcare.requests | 
+2026-05-03 14:48:26 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:26 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:26 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:26 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (7.1ms)
+2026-05-03 14:48:26 | INFO     | smartcare.requests | 
+2026-05-03 14:48:26 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:48:26 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:48:26 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:48:26 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (306.1ms)
+2026-05-03 14:52:26 | INFO     | smartcare.requests | 
+2026-05-03 14:52:26 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:52:26 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:26 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:26 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:26 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:26 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:26 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:26 | DEBUG    | cachecontrol.controller | Current age based on date: 774
+2026-05-03 14:52:26 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:26 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:26 | DEBUG    | cachecontrol.controller | 22129 > 774
+2026-05-03 14:52:26 | DEBUG    | smartcare.auth | ✅ Token verified in 3.7ms
+2026-05-03 14:52:26 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:52:27 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (940.1ms)
+2026-05-03 14:52:27 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:52:33 | INFO     | smartcare.requests | 
+2026-05-03 14:52:33 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:52:33 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:33 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:33 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:33 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:33 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:33 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:33 | DEBUG    | cachecontrol.controller | Current age based on date: 781
+2026-05-03 14:52:33 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:33 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:33 | DEBUG    | cachecontrol.controller | 22129 > 781
+2026-05-03 14:52:33 | DEBUG    | smartcare.auth | ✅ Token verified in 3.0ms
+2026-05-03 14:52:33 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:52:33 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (295.2ms)
+2026-05-03 14:52:33 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'auth_provider': 'google...}, 'name': 'Chanux Bro'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:52:33 | INFO     | smartcare.requests | 
+2026-05-03 14:52:33 | INFO     | smartcare.requests | ➡️  🔓 GET /api/guardian/emergency-contacts/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:33 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:33 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ✅ GET /api/guardian/emergency-contacts/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (434.1ms)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/compliance/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | INFO     | smartcare.requests | 
+2026-05-03 14:52:34 | INFO     | smartcare.requests | ➡️  🔐 GET /api/connections/my-caregivers
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:34 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:34 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 2 plans from Firestore for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:34 | INFO     | smartcare.physio | 📋 Loaded existing plan for user 3omgr5c3EpZP8dRHiw0dPteWPKt1: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_fc9fe606 (completed_exercises=[])
+2026-05-03 14:52:35 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 2 plans from Firestore for user: 3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:35 | INFO     | smartcare.physio | 📋 Loaded existing plan for user 3omgr5c3EpZP8dRHiw0dPteWPKt1: plan_3omgr5c3EpZP8dRHiw0dPteWPKt1_2026-05-03_fc9fe606 (completed_exercises=[])
+2026-05-03 14:52:35 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:35 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:35 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:35 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:35 | DEBUG    | cachecontrol.controller | Current age based on date: 783
+2026-05-03 14:52:35 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:35 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:35 | DEBUG    | cachecontrol.controller | 22129 > 783
+2026-05-03 14:52:35 | DEBUG    | smartcare.auth | ✅ Token verified in 3.0ms
+2026-05-03 14:52:35 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=3omgr5c3EpZP8dRHiw0dPteWPKt1, email=chanuxbroali@gmail.com, role=user)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1067.0ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1064.7ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1063.7ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1063.7ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1062.7ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/physio/profile/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (1063.3ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ⚠️ GET /api/physio/compliance/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 404 (1062.4ms)
+2026-05-03 14:52:35 | INFO     | smartcare.requests | ✅ GET /api/connections/my-caregivers → 200 (1062.4ms)
+2026-05-03 14:52:36 | INFO     | smartcare.requests | 
+2026-05-03 14:52:36 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1
+2026-05-03 14:52:36 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:36 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:36 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/3omgr5c3EpZP8dRHiw0dPteWPKt1 → 200 (165.1ms)
+2026-05-03 14:52:52 | INFO     | smartcare.requests | 
+2026-05-03 14:52:52 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:52:52 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:52 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:52 | INFO     | smartcare.requests | 
+2026-05-03 14:52:52 | INFO     | smartcare.requests | ➡️  🔐 GET /api/users/me
+2026-05-03 14:52:52 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:52 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:52 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:52 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:52 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:52 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:52 | DEBUG    | cachecontrol.controller | Current age based on date: 800
+2026-05-03 14:52:52 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:52 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:52 | DEBUG    | cachecontrol.controller | 22129 > 800
+2026-05-03 14:52:52 | DEBUG    | smartcare.auth | ✅ Token verified in 3.8ms
+2026-05-03 14:52:52 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=h9TYpNz78JTge6l6nt2TIxuLIW73, email=smartcareelder1@gmail.com, role=user)
+2026-05-03 14:52:53 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'profile_image_url': 'ht...5}, 'name': 'Elder One'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (441.8ms)
+2026-05-03 14:52:53 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'profile_image_url': 'ht...5}, 'name': 'Elder One'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:52:53 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:53 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:53 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:53 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:53 | DEBUG    | cachecontrol.controller | Current age based on date: 801
+2026-05-03 14:52:53 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:53 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:53 | DEBUG    | cachecontrol.controller | 22129 > 801
+2026-05-03 14:52:53 | DEBUG    | smartcare.auth | ✅ Token verified in 3.0ms
+2026-05-03 14:52:53 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=h9TYpNz78JTge6l6nt2TIxuLIW73, email=smartcareelder1@gmail.com, role=user)
+2026-05-03 14:52:53 | ERROR    | smartcare.requests | 💥 GET /api/users/me → ERROR: ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'profile_image_url': 'ht...5}, 'name': 'Elder One'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing (850.4ms)
+2026-05-03 14:52:53 | ERROR    | smartcare.requests | Traceback (most recent call last):
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\main.py", line 99, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\cors.py", line 88, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\middleware\exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 660, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 680, in app
+    await route.handle(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 134, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\starlette\_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 120, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 674, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\fastapi\routing.py", line 328, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\core\users.py", line 211, in get_current_user
+    return UserResponse(**user_doc.to_dict())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\smartCarePlus_v2\smartCarePlus\backend\venv\Lib\site-packages\pydantic\main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for UserResponse
+uid
+  Field required [type=missing, input_value={'profile_image_url': 'ht...5}, 'name': 'Elder One'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.13/v/missing
+
+2026-05-03 14:52:54 | INFO     | smartcare.requests | 
+2026-05-03 14:52:54 | INFO     | smartcare.requests | ➡️  🔓 GET /api/guardian/emergency-contacts/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:54 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:54 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ✅ GET /api/guardian/emergency-contacts/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1444.4ms)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/connections/my-caregivers
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/plan/today/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/daily-summary/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/bmi/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/profile/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | INFO     | smartcare.requests | 
+2026-05-03 14:52:56 | INFO     | smartcare.requests | ➡️  🔐 GET /api/physio/compliance/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:56 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:56 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 0 plans from Firestore for user: h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:56 | INFO     | smartcare.physio | 📋 No plan found for user h9TYpNz78JTge6l6nt2TIxuLIW73 on 2026-05-03, generating new one...
+2026-05-03 14:52:57 | DEBUG    | smartcare.physio.patient | 📥 Loaded profile from Firestore: h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:57 | DEBUG    | smartcare.physio.plan_generator | 💾 Saved plan to Firestore: plan_h9TYpNz78JTge6l6nt2TIxuLIW73_2026-05-03_67c4ff4b
+2026-05-03 14:52:57 | INFO     | smartcare.physio.plan_generator | 📅 Generated daily plan: plan_h9TYpNz78JTge6l6nt2TIxuLIW73_2026-05-03_67c4ff4b | 4 exercises | ~10 min | difficulty=moderate
+2026-05-03 14:52:57 | DEBUG    | smartcare.auth | 🔐 Token verification started
+2026-05-03 14:52:57 | DEBUG    | smartcare.auth | 🔑 Token received: eyJhbGciOiJSUzI1NiIs...
+2026-05-03 14:52:57 | DEBUG    | smartcare.auth | 🔥 Verifying token with Firebase...
+2026-05-03 14:52:57 | DEBUG    | cachecontrol.controller | Looking up "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com" in the cache
+2026-05-03 14:52:57 | DEBUG    | cachecontrol.controller | Current age based on date: 805
+2026-05-03 14:52:57 | DEBUG    | cachecontrol.controller | Freshness lifetime from max-age: 22129
+2026-05-03 14:52:57 | DEBUG    | cachecontrol.controller | The response is "fresh", returning cached response
+2026-05-03 14:52:57 | DEBUG    | cachecontrol.controller | 22129 > 805
+2026-05-03 14:52:57 | DEBUG    | smartcare.auth | ✅ Token verified in 3.0ms
+2026-05-03 14:52:57 | DEBUG    | smartcare.auth | ✅ Authenticated: AuthenticatedUser(uid=h9TYpNz78JTge6l6nt2TIxuLIW73, email=smartcareelder1@gmail.com, role=user)
+2026-05-03 14:52:57 | DEBUG    | smartcare.physio.plan_generator | 📥 Loaded 1 plans from Firestore for user: h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:57 | INFO     | smartcare.physio | 📋 Loaded existing plan for user h9TYpNz78JTge6l6nt2TIxuLIW73: plan_h9TYpNz78JTge6l6nt2TIxuLIW73_2026-05-03_67c4ff4b (completed_exercises=[])
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1703.0ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1702.5ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/connections/my-caregivers → 200 (1700.6ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/physio/plan/today/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1699.6ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/nutrition/daily-summary/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1699.5ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/physio/bmi/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1699.8ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/physio/profile/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (1700.9ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ⚠️ GET /api/physio/compliance/h9TYpNz78JTge6l6nt2TIxuLIW73 → 404 (1700.8ms)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | 
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ➡️  🔐 GET /api/nutrition/hydration/h9TYpNz78JTge6l6nt2TIxuLIW73
+2026-05-03 14:52:58 | DEBUG    | smartcare.requests |     Client: 192.168.0.107
+2026-05-03 14:52:58 | DEBUG    | smartcare.requests |     User-Agent: Dart/3.11 (dart:io)
+2026-05-03 14:52:58 | INFO     | smartcare.requests | ✅ GET /api/nutrition/hydration/h9TYpNz78JTge6l6nt2TIxuLIW73 → 200 (285.5ms)
+2026-05-03 16:10:12 | INFO     | smartcare.requests | 
+2026-05-03 16:10:12 | INFO     | smartcare.requests | ➡️  🔓 GET /
+2026-05-03 16:10:12 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:10:12 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:10:12 | INFO     | smartcare.requests | ⚠️ GET / → 404 (9.0ms)
+2026-05-03 16:10:38 | INFO     | smartcare.requests | 
+2026-05-03 16:10:38 | INFO     | smartcare.requests | ➡️  🔓 GET /health
+2026-05-03 16:10:38 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:10:38 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:10:38 | INFO     | smartcare.requests | ✅ GET /health → 200 (2.9ms)
+2026-05-03 16:13:42 | INFO     | smartcare.requests | 
+2026-05-03 16:13:42 | INFO     | smartcare.requests | ➡️  🔓 GET /api/physio
+2026-05-03 16:13:42 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:13:42 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:13:42 | INFO     | smartcare.requests | ⚠️ GET /api/physio → 404 (2.0ms)
+2026-05-03 16:14:18 | INFO     | smartcare.requests | 
+2026-05-03 16:14:18 | INFO     | smartcare.requests | ➡️  🔓 GET /api/physio/exercises
+2026-05-03 16:14:18 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:14:18 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:14:18 | INFO     | smartcare.requests | ✅ GET /api/physio/exercises → 200 (7.1ms)
+2026-05-03 16:15:21 | INFO     | smartcare.requests | 
+2026-05-03 16:15:21 | INFO     | smartcare.requests | ➡️  🔓 POST /api/physio/analyze-exercise
+2026-05-03 16:15:21 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:15:21 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:15:23 | INFO     | smartcare.requests | ⚠️ POST /api/physio/analyze-exercise → 422 (1579.6ms)
+2026-05-03 16:16:23 | INFO     | smartcare.requests | 
+2026-05-03 16:16:23 | INFO     | smartcare.requests | ➡️  🔓 GET /api/physio/compare-local-videos
+2026-05-03 16:16:23 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:16:23 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:16:23 | INFO     | smartcare.requests | ⚠️ GET /api/physio/compare-local-videos → 422 (4.2ms)
+2026-05-03 16:18:55 | INFO     | smartcare.requests | 
+2026-05-03 16:18:55 | INFO     | smartcare.requests | ➡️  🔓 POST /api/physio/session/start
+2026-05-03 16:18:55 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:18:55 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:18:55 | INFO     | smartcare.requests | ⚠️ POST /api/physio/session/start → 422 (8.0ms)
+2026-05-03 16:19:16 | INFO     | smartcare.requests | 
+2026-05-03 16:19:16 | INFO     | smartcare.requests | ➡️  🔓 GET /api/physio/exercises
+2026-05-03 16:19:16 | DEBUG    | smartcare.requests |     Client: 127.0.0.1
+2026-05-03 16:19:16 | DEBUG    | smartcare.requests |     User-Agent: PostmanRuntime/7.51.1
+2026-05-03 16:19:16 | INFO     | smartcare.requests | ✅ GET /api/physio/exercises → 200 (2.0ms)

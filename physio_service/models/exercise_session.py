@@ -11,6 +11,43 @@ from datetime import datetime
 from enum import Enum
 import time
 import uuid
+import logging
+import sys
+import numpy as np
+
+
+def _to_python(val: Any) -> Any:
+    """Recursively convert numpy types to Python native types for JSON serialization."""
+    if isinstance(val, (np.bool_,)):
+        return bool(val)
+    elif isinstance(val, (np.integer,)):
+        return int(val)
+    elif isinstance(val, (np.floating,)):
+        return float(val)
+    elif isinstance(val, np.ndarray):
+        return val.tolist()
+    elif isinstance(val, dict):
+        return {k: _to_python(v) for k, v in val.items()}
+    elif isinstance(val, (list, tuple)):
+        return type(val)(_to_python(v) for v in val)
+    return val
+
+
+def _setup_physio_logger(name: str) -> logging.Logger:
+    """Configure a physio logger at DEBUG level with console output."""
+    _logger = logging.getLogger(name)
+    _logger.setLevel(logging.DEBUG)
+    if not _logger.handlers:
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setLevel(logging.DEBUG)
+        handler.setFormatter(logging.Formatter(
+            fmt="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S"
+        ))
+        _logger.addHandler(handler)
+    return _logger
+
+logger = _setup_physio_logger("smartcare.physio.session")
 
 from .pose_analyzer import (
     PoseAnalyzer, 
@@ -19,6 +56,13 @@ from .pose_analyzer import (
     FormQuality,
     FormAssessment,
     get_pose_analyzer
+)
+
+from .movement_analyzer import (
+    MovementAnalyzer,
+    MovementAnalysisResult,
+    get_movement_analyzer,
+    reset_movement_analyzer
 )
 
 
@@ -135,8 +179,10 @@ class ExerciseSessionHandler:
     - Multi-set exercise tracking
     - Real-time form feedback
     - Rep counting with form scoring
-    - Pain/discomfort detection
+    - Pain/discomfort detection (enhanced 3-layer)
     - Session summary generation
+    - Velocity & smoothness analysis
+    - Adaptive feedback prioritization
     """
     
     def __init__(self, pose_analyzer: Optional[PoseAnalyzer] = None):
@@ -148,6 +194,7 @@ class ExerciseSessionHandler:
         """
         self.pose_analyzer = pose_analyzer or get_pose_analyzer()
         self.active_sessions: Dict[str, ExerciseSession] = {}
+        self.movement_analyzers: Dict[str, MovementAnalyzer] = {}  # session_id -> analyzer
     
     def create_session(
         self,
@@ -185,6 +232,14 @@ class ExerciseSessionHandler:
         
         # Initialize rep counter for this exercise
         self.pose_analyzer.init_rep_counter(exercise_type)
+        
+        # Initialize movement analyzer for enhanced tracking
+        self.movement_analyzers[session_id] = MovementAnalyzer(exercise_type.value)
+        
+        logger.info(
+            f"📋 Session {session_id} created: {exercise_type.value} "
+            f"target={target_sets}x{target_reps} for user={user_id}"
+        )
         
         return session
     
@@ -228,7 +283,7 @@ class ExerciseSessionHandler:
             pose: Pose result from frame
         
         Returns:
-            Real-time feedback dict
+            Real-time feedback dict with enhanced 3-layer analysis
         """
         session = self.active_sessions.get(session_id)
         if not session:
@@ -237,15 +292,59 @@ class ExerciseSessionHandler:
         if session.state != SessionState.ACTIVE:
             return {"status": session.state.value, "message": "Session not active"}
         
-        # Assess form
+        # Get movement analyzer for this session
+        movement_analyzer = self.movement_analyzers.get(session_id)
+        
+        # Assess form (Layer 1 part)
         form_assessment = self.pose_analyzer.assess_form(pose, session.exercise_type)
         
-        # Count reps
-        rep_count, rep_completed = self.pose_analyzer.count_rep(pose, session.exercise_type)
+        # Get joint angles for enhanced analysis
+        joint_angles = self.pose_analyzer.get_joint_angles(pose)
         
-        # Check for pain indicators
-        pain_indicators = self.pose_analyzer.detect_pain_indicators(pose)
+        # Determine primary angle based on exercise type
+        thresholds = self.pose_analyzer.EXERCISE_THRESHOLDS.get(session.exercise_type, {})
+        threshold_up = thresholds.get("rep_up", 150)
+        threshold_down = thresholds.get("rep_down", 100)
+        primary_angle = self._get_primary_angle(session.exercise_type, joint_angles)
         
+        # ═══════════════════════════════════════════════════════════════════════
+        # 3-LAYER MOVEMENT ANALYSIS
+        # ═══════════════════════════════════════════════════════════════════════
+        enhanced_analysis = None
+        if movement_analyzer:
+            enhanced_analysis = movement_analyzer.analyze(
+                angles=joint_angles,
+                primary_angle_name=self._get_primary_angle_name(session.exercise_type),
+                threshold_up=threshold_up,
+                threshold_down=threshold_down,
+                timestamp=pose.timestamp / 1000 if pose.timestamp > 1e10 else pose.timestamp
+            )
+        
+        # Use enhanced rep detection if available, fall back to basic
+        if enhanced_analysis and enhanced_analysis.rep_result.rep_completed:
+            rep_completed = True
+            rep_count = session.current_rep + 1
+        else:
+            # Fallback to basic rep counting
+            rep_count, rep_completed = self.pose_analyzer.count_rep(pose, session.exercise_type)
+        
+        # Use enhanced pain detection if available
+        if enhanced_analysis:
+            pain_indicators = enhanced_analysis.pain_indicators.to_dict()
+            pain_detected = enhanced_analysis.pain_indicators.overall_confidence > 0.3
+            pain_confidence = enhanced_analysis.pain_indicators.overall_confidence
+            pain_details = enhanced_analysis.pain_indicators.details
+            pain_recommendation = enhanced_analysis.pain_indicators.recommendation
+        else:
+            # Fallback to basic pain detection
+            basic_pain = self.pose_analyzer.detect_pain_indicators(pose)
+            pain_detected = basic_pain.get("confidence", 0) > 0.3
+            pain_confidence = basic_pain.get("confidence", 0)
+            pain_details = basic_pain.get("details", [])
+            pain_recommendation = "continue"
+            pain_indicators = basic_pain
+        
+        # Build response
         response = {
             "session_id": session_id,
             "state": session.state.value,
@@ -257,11 +356,42 @@ class ExerciseSessionHandler:
             "feedback": form_assessment.feedback,
             "rep_completed": rep_completed,
             "pain_indicators": {
-                "detected": pain_indicators.get("confidence", 0) > 0.3,
-                "confidence": pain_indicators.get("confidence", 0),
-                "details": pain_indicators.get("details", [])
+                "detected": pain_detected,
+                "confidence": pain_confidence,
+                "details": pain_details,
+                "recommendation": pain_recommendation
             }
         }
+        
+        # Add enhanced metrics if available
+        if enhanced_analysis:
+            response["enhanced_metrics"] = {
+                # Movement phase
+                "phase": enhanced_analysis.rep_result.current_phase.value,
+                "confidence": enhanced_analysis.rep_result.confidence,
+                # Layer scores
+                "layer_scores": {
+                    "angle": enhanced_analysis.rep_result.angle_score,
+                    "velocity": enhanced_analysis.rep_result.velocity_score,
+                    "pattern": enhanced_analysis.rep_result.pattern_score,
+                },
+                # Velocity & smoothness
+                "velocity": {
+                    "current": enhanced_analysis.velocity_metrics.current_velocity,
+                    "smoothness_score": enhanced_analysis.velocity_metrics.smoothness_score,
+                    "tempo_score": enhanced_analysis.velocity_metrics.tempo_score,
+                },
+                # Adaptive feedback
+                "adaptive_feedback": {
+                    "focus": enhanced_analysis.current_focus,
+                    "adaptation": enhanced_analysis.adaptation_suggestion,
+                    "priority_list": enhanced_analysis.feedback_priority[:3],
+                },
+                # Form guidance (reference skeleton matching)
+                "form_guidance": enhanced_analysis.form_guidance,
+            }
+            # Add pain indicators breakdown
+            response["pain_indicators"]["breakdown"] = pain_indicators
         
         # Handle rep completion
         if rep_completed:
@@ -282,15 +412,49 @@ class ExerciseSessionHandler:
                     session.state = SessionState.REST
                     response["rest_duration"] = session.rest_duration_seconds
         
-        # Update pain tracking
-        if pain_indicators.get("confidence", 0) > 0.4:
+        # Update pain tracking (using enhanced detection)
+        if pain_confidence > 0.4:
             session.pain_detected_count += 1
-            session.intensity_recommendation = self.pose_analyzer.get_intensity_recommendation(pain_indicators)
+            session.intensity_recommendation = pain_recommendation.replace("_", " ").title()
             response["intensity_recommendation"] = session.intensity_recommendation
         
         session.current_feedback = form_assessment.feedback
         
-        return response
+        # Convert all numpy types to Python native for JSON serialization
+        return _to_python(response)
+    
+    def _get_primary_angle_name(self, exercise_type: ExerciseType) -> str:
+        """Get the primary angle name for an exercise type."""
+        mapping = {
+            ExerciseType.CHAIR_STAND: "avg_knee",
+            ExerciseType.SQUAT: "avg_knee",
+            ExerciseType.LEG_RAISE: "avg_hip",
+            ExerciseType.ARM_RAISE: "avg_shoulder",
+            ExerciseType.WALL_PUSHUP: "avg_elbow",
+            ExerciseType.MARCHING: "avg_hip",
+            ExerciseType.MARCHING_IN_PLACE: "avg_hip",
+            ExerciseType.SINGLE_LEG_STAND: "avg_hip",
+            ExerciseType.SHOULDER_ROLLS: "avg_shoulder",
+            ExerciseType.SEATED_LEG_RAISE: "avg_hip",
+            ExerciseType.SEATED_ARM_RAISES: "avg_shoulder",
+        }
+        return mapping.get(exercise_type, "avg_knee")
+    
+    def _get_primary_angle(self, exercise_type: ExerciseType, angles: Dict[str, float]) -> float:
+        """Get the primary angle value for an exercise type."""
+        name = self._get_primary_angle_name(exercise_type)
+        
+        # Calculate average if needed
+        if name == "avg_knee":
+            return (angles.get("left_knee", 180) + angles.get("right_knee", 180)) / 2
+        elif name == "avg_hip":
+            return (angles.get("left_hip", 180) + angles.get("right_hip", 180)) / 2
+        elif name == "avg_shoulder":
+            return (angles.get("left_shoulder", 0) + angles.get("right_shoulder", 0)) / 2
+        elif name == "avg_elbow":
+            return (angles.get("left_elbow", 180) + angles.get("right_elbow", 180)) / 2
+        
+        return angles.get(name, 0)
     
     def _record_rep(self, session: ExerciseSession, assessment: FormAssessment):
         """Record a completed repetition."""

@@ -36,6 +36,20 @@ class Settings(BaseSettings):
     # ML Models
     ML_MODELS_PATH: str = "ml_models"
     
+    # Email / SMTP
+    SMTP_EMAIL: str = ""
+    SMTP_PASSWORD: str = ""
+
+    # Speech-to-text accessibility
+    GEMINI_API_KEY: str = ""
+    GEMINI_STT_MODEL: str = "gemini-2.5-flash"
+    STT_PROVIDER: str = "vertex_ai"  # vertex_ai | gemini_api
+    VERTEX_AI_CREDENTIALS_PATH: str = ""
+    VERTEX_AI_PROJECT_ID: str = ""
+    VERTEX_AI_LOCATION: str = "us-central1"
+    STT_DEFAULT_LOCALE: str = "en-US"
+    STT_MAX_AUDIO_MB: int = 8
+    
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
