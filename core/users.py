@@ -214,9 +214,14 @@ async def get_current_user(
 @router.get("/{user_id}", response_model=UserResponse)
 async def get_user(
     user_id: str,
+<<<<<<< Updated upstream
     current_user: AuthenticatedUser = Depends(verify_firebase_token)
 ):
     """Get a user by ID. Guardians can view their linked elderly."""
+=======
+):
+    """Get a user by ID."""
+>>>>>>> Stashed changes
     db = get_db()
     
     if is_mock_mode():
@@ -229,7 +234,13 @@ async def get_user(
     if not user_doc.exists:
         raise HTTPException(status_code=404, detail="User not found")
     
+<<<<<<< Updated upstream
     return UserResponse(**user_doc.to_dict())
+=======
+    data = user_doc.to_dict()
+    data["uid"] = user_doc.id
+    return UserResponse(**data)
+>>>>>>> Stashed changes
 
 
 @router.put("/me", response_model=UserResponse)

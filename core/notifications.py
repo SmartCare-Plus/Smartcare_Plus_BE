@@ -23,11 +23,19 @@ class NotificationType(str, Enum):
     SOS_ALERT = "sos_alert"
     GEOFENCE_EXIT = "geofence_exit"
     INACTIVITY_ALERT = "inactivity_alert"
+<<<<<<< Updated upstream
+=======
+    EXERCISE_PAIN = "exercise_pain"
+>>>>>>> Stashed changes
     
     # Health updates (normal priority)
     MEDICATION_REMINDER = "medication_reminder"
     HYDRATION_REMINDER = "hydration_reminder"
     EXERCISE_REMINDER = "exercise_reminder"
+<<<<<<< Updated upstream
+=======
+    MEAL_SKIPPED = "meal_skipped"
+>>>>>>> Stashed changes
     
     # General (low priority)
     DAILY_SUMMARY = "daily_summary"
@@ -48,7 +56,12 @@ class PushNotification:
         return self.notification_type in [
             NotificationType.FALL_DETECTED,
             NotificationType.SOS_ALERT,
+<<<<<<< Updated upstream
             NotificationType.GEOFENCE_EXIT
+=======
+            NotificationType.GEOFENCE_EXIT,
+            NotificationType.EXERCISE_PAIN,
+>>>>>>> Stashed changes
         ]
 
 
