@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "smartcare-plus-495011",
+  "private_key_id": "1a9e026837f017cd5dc0d751a5f078e4f18ab81f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQD1mZiBtpQQk4m7\nwTlX8/XILrbIdMSyxIENS3ib6IEC1WHKeVoVvmiyLf7J710B3h9FCXmJaxRIa0kg\nucw43hdAMcN5ZBYfXdL0rReA9o/rF5se+AvvEhTh7Y71SyfEGhzF6peJwm8Mo1SI\nLjAwYphDWetoIbOmIh2Jh9tAdtsbZTaLZiwULN3s7hJoBvgJZSGaBYkhq6gg7cUA\nbBPegoOeT0HwoBy9n8ffAN3toX2x4b5EmcI5SRXvfMIpB2U1UUY2zvZNE8nkWx+F\n/5nGhSr5jebDlRzQk1ZeD0NiQVRmDldUQfobB/wjPxkTXBIvWJr5ZtKUP1dOkEjG\nYELW1wNXAgMBAAECggEABS7LmBkpQLxMUMkAE8oTKrlJpCtKp1ccPhKUpf2fE1c7\nbBFphEHzZacw1EQX2107nbJYfTzkPa796RHirGSLaxBhxqMFEH5jYERy1YbefKCP\n5nRnlBD2ndnshWKjoTDH4KlVr1OKEmMz+ne3Dp5WBj3UiOsFJoFbzDYwu0iG0Sok\nCkpVkNC4amxcYavRwyqfd1q0ssOeePehhaMRPWKFcos7kr7yhvE/NC29R5Ivgz2X\nga688IBIvL9jZI9Acyff5Kr3MtAPsI2l3fbnP1AV2+e0U+d9dRCn3FSS2klcL44y\niRbNwSWUh+XDO/Jb9qPtq8+vEdojTwrZfVIQycdnAQKBgQD7LxD2ATRIOp6HVTPt\nfjGZYCpFe4NNXAY93HSKy6TLWPhNsoiuFcpMe6edVe3Uou0ME3lDn/NWXHFzU5DA\n8AK1d+dE3AhGCws6K/oWBP22Dbbg0iUPVjMF1MDMl/g1et+SUoB3graEh8jSOs3+\nn2HnI+Bp207v/pHOZGlqKYWhgQKBgQD6Tx8AjRZYB692tMEBeepMcPxjZmw+hlHf\nYssiElrhuOd/0MiG7LwYdpws6fzC5Oruq579uMLqg0l6KHTJ9OlN0o1i/4cSc3Ej\nEDUMI2NUWDUDbJDvNAP2Bc06GgbEDD7bWfz1Lx3h9EINhGhU54nNnKHTnSKJhgPu\nyDl2yQxg1wKBgFtr5QN0qr/DPiHJnA3LiWfmfVwuuTp1zPvE+lHuDrvIVQ+KdH7Q\nBYJS203Dkb1700U67T70v49mNBCikKP4dzPvQShp4UUFDgANM4fCJ0mUskQfmEd9\nuzJbHhUZFsj4QNkz1/gnhiC0fx4tMv6CqhKDl1FP9eoZwJ3bJBb0p+OBAoGAE/2R\nqkeaSzmB5+cTqvyDm8tCPOYHKw8rJr4LHxN8Mp7Dzk9sVGo/s2x1mJivWRlTMfB+\n6CCDYJtPmPP2L9Lhdxejtw5VSUHy/SvkMK361teclENtZ80tq85Wz5cYhzu7IWWU\ncDhtGIibZdz3QCClvsgNnIrmITmUwtM206fG100CgYBuZeCEcq2xmbvy/M6YBnoA\neIz0LSX4t97XnY8Z6xCK+G4VknLStEHWGOJKZ53tUqqsmeDn87XgRLs3vSGz0PtM\nD61Uz2tuflsXfOlkdj2gK2uZWrBlfnP7uVNFLyP1TDEQkCpo27WhM6pnqT7/N2IC\nDuc5/UqHoPjNPFSsmJCqxA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "smartcareplus1@smartcare-plus-495011.iam.gserviceaccount.com",
+  "client_id": "116733816206880958286",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/smartcareplus1%40smartcare-plus-495011.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
